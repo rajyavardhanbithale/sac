@@ -13,7 +13,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors:{
-        'accent':'#4900DE',
+        'accent':'#118cf8',
         'primary':'#FF9D2E',
         'secondary':'#FFFFFF',
         
@@ -21,5 +21,7 @@ module.exports = {
     },
     
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 };
