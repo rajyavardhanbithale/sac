@@ -1,27 +1,40 @@
+import Image from "next/image";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+
+
 export default function Navbar() {
+
     return (
         <>
-            <header class="text-gray-600 body-font">
-                <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                        <span class="ml-3 text-xl">Tailblocks</span>
+
+
+            <nav className="bg-primary  fixed w-full z-20 top-0 start-0">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <Image src={"logo/sac_logo.svg"} height={60} width={60} classNameName="rounded-full" />
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SAC</span>
                     </a>
-                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                        <a class="mr-5 hover:text-gray-900">First Link</a>
-                        <a class="mr-5 hover:text-gray-900">Second Link</a>
-                        <a class="mr-5 hover:text-gray-900">Third Link</a>
-                        <a class="mr-5 hover:text-gray-900">Fourth Link</a>
-                    </nav>
-                    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
+                    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                        <button type="button" className="text-white bg-accent hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300">
+                            <span>Join</span>
+
+                        </button>
+                        <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                            <span className="sr-only">Open main menu</span>
+
+                        </button>
+                    </div>
+                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
+                            <li>
+                                <a href="#" className="text-secondary ">About</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
-            </header>
+            </nav>
+
         </>
     )
 }
