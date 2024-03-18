@@ -2,6 +2,7 @@
 import { useState } from "react"
 import ClubInfo from "./Club_info"
 import { list } from "./club_list"
+import Title from "../Title"
 
 
 
@@ -19,9 +20,8 @@ export default function Clubs() {
 
     return (
         <>
-            <div className="w-full flex justify-center mt-8">
-                <span className="text-3xl bg-primary text-secondary px-3 py-4 rounded-2xl">Our Clubs</span>
-            </div>
+            
+            <Title title={"Our Clubs"} />
 
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
                 {list.map((item, idx) => (
@@ -44,7 +44,7 @@ export default function Clubs() {
                     title={list[index]?.name}
                     mission={list[index]?.mission}
                     vision={list[index]?.vision}
-                    // key={seed}
+                // key={seed}
                 ></ClubInfo>
             }
 

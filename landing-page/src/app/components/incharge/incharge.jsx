@@ -1,10 +1,13 @@
 'use client'
+import Title from "../Title";
 import { incharge_list } from "./incharg_list"
 import Marquee from "react-marquee-slider";
 
 export default function Incharge() {
+    
     return (
         <>
+            <Title title={"Incharges"} />
             <section className="text-gray-600 body-font">
                 <div className="w-[95%] px-4 py-24 mx-auto">
                     <div className="-mx-4 -mb-10 text-center">
