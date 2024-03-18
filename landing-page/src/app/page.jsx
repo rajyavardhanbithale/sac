@@ -11,18 +11,21 @@ export default function Home() {
       <Navbar></Navbar>
 
       <div className="mt-[71px] mb-[71px]">
-        {/* <div id="club" className=""></div>
+
+        <div id="club" className=""></div>
         <Hero></Hero>
+
         <Clubs></Clubs>
 
+        <div id="incharge" className=""></div>
         <div className="mt-8 mb-28"></div>
+        <Incharge></Incharge>
 
-        */}
-        <Incharge></Incharge> 
+        <div id="gallery" className=""></div>
         <Gallery></Gallery>
       </div>
 
-      
+
     </>
   );
 }

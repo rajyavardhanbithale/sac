@@ -4,8 +4,8 @@ import Image from "next/image";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 export default function Navbar() {
-    const handleClickScroll = () => {
-        const element = document.getElementById('club');
+    const handleClickScroll = (id) => {
+        const element = document.getElementById(id);
         if (element) {
           // 👇 Will scroll smoothly to the top of the next section
           element.scrollIntoView({ behavior: 'smooth' });
@@ -35,7 +35,9 @@ export default function Navbar() {
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
                             <li>
-                                <span onClick={handleClickScroll} className="cursor-pointer text-secondary">Clubs</span>
+                                <span onClick={()=>handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
+                                <span onClick={()=>handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
+                                <span onClick={()=>handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
                             </li>
 
                         </ul>
