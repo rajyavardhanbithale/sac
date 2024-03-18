@@ -12,7 +12,11 @@ export default function Clubs() {
     function handleHover(index) {
         console.log(index);
         setIndex(index)
-        setHover(!hover)
+        setHover(true)
+    }
+
+    function handleBackFromChildren() {
+        setHover(false)
     }
 
     return (
@@ -21,7 +25,7 @@ export default function Clubs() {
                 <span className="text-3xl bg-primary text-secondary px-3 py-4 rounded-2xl">Our Clubs</span>
             </div>
 
-            <div className={`${hover ? 'p-0' : 'p-5'} w-full flex flex-wrap justify-center gap-6`}>
+            <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
                 {list.map((item, idx) => (
                     <>
                         {hover ? (
@@ -36,6 +40,7 @@ export default function Clubs() {
                     </>
                 ))}
             </div>
+
             {hover &&
                 <ClubInfo image={list[index]?.logo}
                     title={list[index]?.name}
@@ -43,6 +48,22 @@ export default function Clubs() {
                     vision={list[index]?.vision}
                 ></ClubInfo>
             }
+
+            <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
+                {list.map((item, idx) => (
+                    <>
+                        {hover ? (
+                            <div key={idx} className="flex flex-col justify-center align-middle text-center" >
+                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="z-0 w-56  rounded-full hover:brightness-75 transition duration-500" />
+                                <span className="text-center">{item.name}</span>
+                            </div>
+                        ) : (
+                            null
+                        )}
+
+                    </>
+                ))}
+            </div>
 
         </>
     )

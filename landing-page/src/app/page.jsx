@@ -10,6 +10,7 @@ export default function Home() {
       <div className="mt-[71px]">
         <Hero></Hero>
         <Clubs></Clubs>
+        <Hero></Hero>
       </div>
     </>
   );

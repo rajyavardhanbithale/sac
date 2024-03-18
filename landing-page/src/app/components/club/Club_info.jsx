@@ -1,3 +1,5 @@
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 export default function ClubInfo(props) {
     return (
         <>
@@ -13,18 +15,21 @@ export default function ClubInfo(props) {
 
                         <p class="text-lg mt-2 text-gray-800 w-full font-semibold">Our Mission</p>
                         <p class="mb-4 leading-relaxed">
-                        {props?.mission}
+                            {props?.mission}
                         </p>
-                        
+
                         <p class="text-lg mt-2 text-gray-800 w-full font-semibold">Our Vision</p>
                         <p class="mb-4 leading-relaxed">
-                        {props?.vision}
+                            {props?.vision}
                         </p>
 
 
                         {/* <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p> */}
 
-
+                        {/* <button className="mt-4 bg-accent px-4 py-1 text-secondary rounded-2xl">
+                            <IoMdArrowRoundBack className="inline-flex mr-2"></IoMdArrowRoundBack>
+                            Back
+                        </button> */}
 
                     </div>
                 </div>
