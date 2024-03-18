@@ -16,11 +16,40 @@
   }
 } */
 
-body {
 
-}
 
 *{
   /* outline: red solid 1px; */
 }
 
+.mission{
+  left: 1.25rem;
+  animation: ltr 2s ease-in-out;
+}
+
+.vision{
+  right: 1.25rem;
+  animation: rtl 2s ease-in-out;
+}
+
+@keyframes rtl {
+  from{
+    right: -20rem;
+    opacity: 0;
+  }
+  to{
+    right: 1.25rem;
+    opacity: 100%;
+  }
+}
+
+@keyframes ltr {
+  from{
+    left: -20rem;
+    opacity: 0;
+  }
+  to{
+    left: 1.25rem;
+    opacity: 100%;
+  }
+}
