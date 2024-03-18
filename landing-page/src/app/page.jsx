@@ -1,4 +1,4 @@
-import Clubs from "./components/Clubs/Clubs";
+import Clubs from "./components/club/Clubs";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
