@@ -52,8 +52,8 @@ export default function Clubs() {
                 {list.map((item, idx) => (
                     <>
                         {hover ? (
-                            <div key={idx} className="flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-75 transition duration-500 " />
+                            <div key={idx} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
+                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 transition duration-500 " />
                                 <span className="text-center mt-0">{item.name}</span>
                             </div>
                         ) : (
