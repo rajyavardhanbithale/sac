@@ -11,7 +11,7 @@ export default function Home() {
       <div className="mt-[71px]">
         <Hero></Hero>
         <div id="club">
-          {/* <Clubs></Clubs> */}
+          <Clubs></Clubs>
 
         </div>
         <Incharge></Incharge>
