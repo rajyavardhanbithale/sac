@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Title from './Title';
+import Image from "next/image";
 
 export default function Gallery() {
     const settings = {
@@ -20,16 +21,14 @@ export default function Gallery() {
     };
 
     const images = [
-        'https://t4.ftcdn.net/jpg/03/80/74/79/360_F_380747975_sS1hCVB0qPqFCWBMZ3qJ5xTqH6rtaDBI.jpg',
-        'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3NrOTc5MS1pbWFnZS1rd3Z1amE5Ni5qcGc.jpg',
-        'https://t4.ftcdn.net/jpg/03/80/74/79/360_F_380747975_sS1hCVB0qPqFCWBMZ3qJ5xTqH6rtaDBI.jpg',
-        'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3NrOTc5MS1pbWFnZS1rd3Z1amE5Ni5qcGc.jpg',
-        'https://t4.ftcdn.net/jpg/03/80/74/79/360_F_380747975_sS1hCVB0qPqFCWBMZ3qJ5xTqH6rtaDBI.jpg',
-        'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3NrOTc5MS1pbWFnZS1rd3Z1amE5Ni5qcGc.jpg',
-        'https://t4.ftcdn.net/jpg/03/80/74/79/360_F_380747975_sS1hCVB0qPqFCWBMZ3qJ5xTqH6rtaDBI.jpg',
-        'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3NrOTc5MS1pbWFnZS1rd3Z1amE5Ni5qcGc.jpg',
-        'https://t4.ftcdn.net/jpg/03/80/74/79/360_F_380747975_sS1hCVB0qPqFCWBMZ3qJ5xTqH6rtaDBI.jpg',
-        'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3NrOTc5MS1pbWFnZS1rd3Z1amE5Ni5qcGc.jpg',
+        '/assets/image1.jpg',
+        '/assets/image2.webp',
+        '/assets/image1.jpg',
+        '/assets/image2.webp',
+        '/assets/image1.jpg',
+        '/assets/image2.webp',
+        '/assets/image1.jpg',
+        '/assets/image2.webp',
     ]
 
     return (
@@ -40,7 +39,7 @@ export default function Gallery() {
                 <Slider {...settings}>
                     {images.map((image, index) => (
                         <div key={index}>
-                            <img src={image} alt={`Slide ${index + 1}`} className="object-cover w-[80%] h-[80%] mx-auto my-auto" />
+                            <Image height={0} width={0} src={image} alt={`Slide ${index + 1}`} className="object-cover w-[80%] h-[80%] mx-auto my-auto" />
                         </div>
                     ))}
                 </Slider>

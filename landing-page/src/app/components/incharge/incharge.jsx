@@ -13,7 +13,7 @@ export default function Incharge() {
                     <div className="-mx-4 -mb-10 text-center">
                         <Marquee velocity={50}>
                             {incharge_list.map((item, idx) => (
-                                <div className=" mb-10 px-4">
+                                <div key={idx} className=" mb-10 px-4">
                                     <div className="rounded-lg h-32 overflow-hidden">
                                         <img alt="content" className="object-cover object-center h-full w-full" src={item?.photo} />
                                     </div>
