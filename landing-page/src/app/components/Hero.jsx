@@ -4,8 +4,8 @@ export default function Hero() {
             <div>
 
                 <div className="relative overflow-hidden"> 
-                    <img src="assets/hero.jpg" className="hidden md:block brightness-[0.2] md:h-[19rem] lg:h-full" />
-                    <img src="assets/hero_mobile.jpg" className="block md:hidden brightness-[0.2] md:h-[19rem] lg:h-full" />
+                    <img src="assets/hero.jpg" className="hidden md:block brightness-[0.2] md:h-[19rem] lg:h-full" alt="home image"/>
+                    <img src="assets/hero_mobile.jpg" className="block md:hidden brightness-[0.2] md:h-[19rem] lg:h-full" alt="home image"/>
                     <div className="flex flex-col absolute w-[40%] py-2.5 mission lg:top-16 md:top-12 top-0 text-secondary leading-8 tracking-wide animate-fade-right">
                         <span className="text-base md:text-2xl lg:text-3xl text-center p-2 m-2">Our Mission</span>
                         <span className="text-xs md:text-base lg:text-xl text-justify md:text-center lg:p-2 lg:m-2">

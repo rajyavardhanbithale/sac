@@ -2,19 +2,22 @@ import Clubs from "./components/club/Clubs";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Incharge from "./components/incharge/incharge";
+import LogoPan from "./components/LogoPan";
 import Navbar from "./components/Navbar";
+import Stats from "./components/Stats";
 
 export default function Home() {
-
+  
   return (
     <>
       <Navbar></Navbar>
 
       <div className="mt-[71px] mb-[71px]">
 
-        <div id="club" className=""></div>
+        {/* <div id="club" className=""></div>
         <Hero></Hero>
 
+        <div className="py-8"></div>
         <Clubs></Clubs>
 
         <div id="incharge" className=""></div>
@@ -22,8 +25,11 @@ export default function Home() {
         <Incharge></Incharge>
 
         <div id="gallery" className=""></div>
-        <Gallery></Gallery>
+        <Gallery></Gallery> */}
       </div>
+
+      <Stats></Stats>
+      {/* <LogoPan></LogoPan> */}
 
 
     </>

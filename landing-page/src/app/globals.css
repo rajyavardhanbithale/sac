@@ -18,38 +18,60 @@
 
 
 
-*{
+* {
   /* outline: red solid 1px; */
+  /* overflow-x: hidden; */
 }
 
-.mission{
+.mission {
   left: 1.25rem;
   animation: ltr 2s ease-in-out;
 }
 
-.vision{
+.vision {
   right: 1.25rem;
   animation: rtl 2s ease-in-out;
 }
 
 @keyframes rtl {
-  from{
+  from {
     right: -20rem;
     opacity: 0;
   }
-  to{
+
+  to {
     right: 1.25rem;
     opacity: 100%;
   }
 }
 
 @keyframes ltr {
-  from{
+  from {
     left: -20rem;
     opacity: 0;
   }
-  to{
+
+  to {
     left: 1.25rem;
     opacity: 100%;
+  }
+}
+
+
+.img-anim {
+  transform: scale(0);
+  animation: scale-in 1.8s ease-in-out;
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 100;
+  }
+  100% {
+    transform: scale(10);
+    /* visibility: hidden; */
+    opacity: 0;
+
   }
 }
