@@ -22,7 +22,7 @@ export default function Home() {
 
  
         <div id="incharge" className=""></div>
-        <div className="mt-10 mb-0"></div>
+        <div className="mt-0 mb-0"></div>
         <Incharge></Incharge>
 
         <div id="gallery" className=""></div>

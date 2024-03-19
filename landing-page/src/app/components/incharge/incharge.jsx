@@ -3,16 +3,21 @@ import Image from "next/image";
 import Title from "../Title";
 import { incharge_list } from "./incharg_list"
 import Marquee from "react-marquee-slider";
+import { useState } from "react";
 
 export default function Incharge() {
+    const [speed,setSpeed] = useState(50)
 
+    function handleHover(spd){
+        setSpeed(spd)
+    }
     return (
         <>
             <Title title={"Incharges"} />
             <section className="text-gray-600 body-font">
                 <div className="w-[95%] px-4 py-24 mx-auto">
-                    <div className="-mx-4 -mb-10 text-center">
-                        <Marquee velocity={50}>
+                    <div onMouseEnter={()=>handleHover(0)}  onMouseLeave={()=>handleHover(40)} className="-mx-4 -mb-10 text-center">
+                        <Marquee  velocity={speed}>
                             {incharge_list.map((item, idx) => (
                                 <div key={idx} className=" mb-10 px-4">
                                     <div className="rounded-lg h-32 overflow-hidden">
