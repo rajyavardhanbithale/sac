@@ -1,10 +1,11 @@
 'use client'
+import Image from "next/image";
 import Title from "../Title";
 import { incharge_list } from "./incharg_list"
 import Marquee from "react-marquee-slider";
 
 export default function Incharge() {
-    
+
     return (
         <>
             <Title title={"Incharges"} />
@@ -15,7 +16,14 @@ export default function Incharge() {
                             {incharge_list.map((item, idx) => (
                                 <div key={idx} className=" mb-10 px-4">
                                     <div className="rounded-lg h-32 overflow-hidden">
-                                        <img alt="content" className="object-cover object-center h-full w-full" src={item?.photo} />
+                                        <Image
+                                            src={item?.photo}
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw" 
+                                            alt="content"
+                                            className="object-cover object-center h-full w-full"
+                                        />
                                     </div>
 
                                     <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-2">{item?.name}</h2>

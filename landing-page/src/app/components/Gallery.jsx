@@ -39,7 +39,13 @@ export default function Gallery() {
                 <Slider {...settings}>
                     {images.map((image, index) => (
                         <div key={index}>
-                            <Image height={0} width={0} src={image} alt={`Slide ${index + 1}`} className="object-cover w-[80%] h-[80%] mx-auto my-auto" />
+                            <Image
+                                src={image}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                alt={`Slide ${index + 1}`}
+                                className="object-cover w-[80%] h-[80%] mx-auto my-auto" />
                         </div>
                     ))}
                 </Slider>
