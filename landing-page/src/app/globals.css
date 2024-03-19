@@ -33,6 +33,23 @@
   animation: rtl 2s ease-in-out;
 }
 
+.title {
+  top: 2rem;
+  animation: title 2s ease-in-out;
+}
+
+@keyframes title {
+  from {
+    top: -0rem;
+    opacity: 0;
+  }
+
+  to {
+    top: 2rem;
+    opacity: 100%;
+  }
+}
+
 @keyframes rtl {
   from {
     right: -20rem;

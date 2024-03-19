@@ -1,4 +1,5 @@
 import Clubs from "./components/club/Clubs";
+import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Incharge from "./components/incharge/incharge";
@@ -12,7 +13,7 @@ export default function Home() {
     <>
       <Navbar></Navbar>
 
-      <div className="mt-[71px] mb-[71px]">
+      <div className="mt-[60px] mb-[71px]">
 
         <div id="club" className=""></div>
         <Hero></Hero>
@@ -32,7 +33,7 @@ export default function Home() {
       
       {/* <LogoPan></LogoPan> */}
 
-
+    <Footer></Footer>
     </>
   );
 }

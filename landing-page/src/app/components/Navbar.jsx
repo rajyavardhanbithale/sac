@@ -19,7 +19,7 @@ export default function Navbar() {
             <nav className="bg-primary fixed w-full z-20 top-0 start-0">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <Image src={"logo/sac_logo.svg"} height={56} width={56} alt="sac logo" className="rounded-xl drop-shadow-md" />
+                        <Image src={"logo/sac_logo.svg"} height={44} width={44} alt="sac logo" className="rounded-xl drop-shadow-md" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SAC</span>
                     </a>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
