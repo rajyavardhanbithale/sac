@@ -3,7 +3,8 @@ import { useState } from "react"
 import ClubInfo from "./Club_info"
 import { list } from "./club_list"
 import Title from "../Title"
-
+import Stats from "../Stats"
+import { PiLightbulbFilament } from "react-icons/pi";
 
 
 export default function Clubs() {
@@ -20,7 +21,7 @@ export default function Clubs() {
 
     return (
         <>
-            
+
             <Title title={"Our Clubs"} />
 
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
@@ -40,12 +41,15 @@ export default function Clubs() {
             </div>
 
             {hover &&
-                <ClubInfo image={list[index]?.logo}
-                    title={list[index]?.name}
-                    mission={list[index]?.mission}
-                    vision={list[index]?.vision}
-                // key={seed}
-                ></ClubInfo>
+                <>
+                    <Stats></Stats>
+                    <ClubInfo image={list[index]?.logo}
+                        title={list[index]?.name}
+                        mission={list[index]?.mission}
+                        vision={list[index]?.vision}
+                    // key={seed}
+                    ></ClubInfo>
+                </>
             }
 
             <div className={` w-full flex flex-wrap justify-center gap-6`}>
@@ -63,6 +67,15 @@ export default function Clubs() {
                     </>
                 ))}
             </div>
+
+            {hover &&
+                <div className="flex w-full justify-center py-16 ">
+                    <div className="flex mt-1 mr-2 text-gray-500 text-base">
+                        <PiLightbulbFilament></PiLightbulbFilament>
+                    </div>
+                    <span className="text-gray-500 text-base">Hover to know more about club</span>
+                </div>
+            }
 
         </>
     )

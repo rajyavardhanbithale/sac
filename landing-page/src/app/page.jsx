@@ -14,21 +14,22 @@ export default function Home() {
 
       <div className="mt-[71px] mb-[71px]">
 
-        {/* <div id="club" className=""></div>
+        <div id="club" className=""></div>
         <Hero></Hero>
 
-        <div className="py-8"></div>
+        <div className="py-4"></div>
         <Clubs></Clubs>
 
+ 
         <div id="incharge" className=""></div>
-        <div className="mt-8 mb-28"></div>
+        <div className="mt-10 mb-0"></div>
         <Incharge></Incharge>
 
         <div id="gallery" className=""></div>
-        <Gallery></Gallery> */}
+        <Gallery></Gallery>
       </div>
 
-      <Stats></Stats>
+      
       {/* <LogoPan></LogoPan> */}
 
 
