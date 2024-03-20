@@ -28,6 +28,7 @@ export default function Incharge() {
                                             sizes="100vw" 
                                             alt="content"
                                             className="object-cover object-center h-full w-full"
+                                            unoptimized
                                         />
                                     </div>
 

@@ -4,7 +4,7 @@ export default function Hero() {
             <div>
 
                 <div className="relative overflow-hidden">
-                    <img src="assets/hero.jpg" className="hidden md:block brightness-[0.2] md:h-[19rem] lg:h-full" alt="home image" />
+                    <img src="assets/hero.jpeg" className="hidden md:block brightness-[0.2] md:h-[19rem] lg:h-full" alt="home image" />
                     <img src="assets/hero_mobile.jpg" className="block md:hidden brightness-[0.2] md:h-[19rem] lg:h-full" alt="home image" />
 
                     <div className="flex flex-col title absolute w-full  lg:top-8 md:top-12 -top-5 text-secondary leading-8 tracking-wide left-1/2" style={{ transform: 'translateX(-50%)' }}>

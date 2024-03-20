@@ -45,7 +45,9 @@ export default function Gallery() {
                                 height={0}
                                 sizes="100vw"
                                 alt={`Slide ${index + 1}`}
-                                className="object-cover w-[80%] h-[80%] mx-auto my-auto" />
+                                className="object-cover w-[80%] h-[80%] mx-auto my-auto" 
+                                unoptimized
+                                />
                         </div>
                     ))}
                 </Slider>

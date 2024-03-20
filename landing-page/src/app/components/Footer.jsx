@@ -1,20 +1,29 @@
-export default function Footer() {
+import { FaTwitter, FaFacebookF, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
+
+function Footer() {
     return (
-        <>
-            <footer className="text-gray-600 body-font">
-                <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-                    <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                        <img src="logo/sac_logo.svg" alt="sac logo" className="w-12" />
-                        <span className="ml-3 text-xl">Student Activity Center (SAC)</span>
-                    </a>
-                    <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Rajyavardhan Bithale —
-                        <a href="https://twitter.com/knyttneve" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@rajyavardhanbithale</a>
-                    </p>
-                    <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-                       +91 963258741
-                    </span>
+        <footer className="bg-primary text-white">
+            <div className="container mx-auto py-4">
+                <div className="flex flex-wrap justify-between">
+                    <div className="w-full md:w-1/2">
+                        <p className="text-sm">&copy; SSIPMT. All Rights Reserved.</p>
+                    </div>
+                    <div className="w-full md:w-1/2 flex justify-end items-center">
+                        <div className="mr-4">
+                            <p className="text-sm">Developed by [placeholder]</p>
+                        </div>
+                        <ul className="flex">
+                            <li className="mr-2"><a href="https://twitter.com/SsipmtR" target="_blank" rel="noopener noreferrer" className="text-white"><FaTwitter /></a></li>
+                            <li className="mr-2"><a href="https://www.facebook.com/ssipmtrpr/" target="_blank" rel="noopener noreferrer" className="text-white"><FaFacebookF /></a></li>
+                            <li className="mr-2"><a href="https://www.instagram.com/explore/tags/ssipmt/?hl=en" target="_blank" rel="noopener noreferrer" className="text-white"><FaInstagram /></a></li>
+                            <li className="mr-2"><a href="https://www.youtube.com/channel/UCqpDXwqlRWtmvhztJE_VYhg/featured" target="_blank" rel="noopener noreferrer" className="text-white"><FaYoutube /></a></li>
+                            <li><a href="https://in.linkedin.com/in/ssipmt-raipur-430a01120" target="_blank" rel="noopener noreferrer" className="text-white"><FaLinkedin /></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </footer>
-        </>
-    )
+            </div>
+        </footer>
+    );
 }
+
+export default Footer;

@@ -7,16 +7,14 @@ export default function Navbar() {
     const handleClickScroll = (id) => {
         const element = document.getElementById(id);
         if (element) {
-          // 👇 Will scroll smoothly to the top of the next section
-          element.scrollIntoView({ behavior: 'smooth' });
+            // 👇 Will scroll smoothly to the top of the next section
+            element.scrollIntoView({ behavior: 'smooth' });
         }
-      };
+    };
 
     return (
         <>
-
-
-            <nav className="bg-primary fixed w-full z-20 top-0 start-0">
+            <nav className=" glass fixed w-full z-20 top-0 start-0">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <Image src={"logo/sac_logo.svg"} height={44} width={44} alt="sac logo" className="rounded-xl drop-shadow-md" />
@@ -35,9 +33,9 @@ export default function Navbar() {
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
                             <li>
-                                <span onClick={()=>handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
-                                <span onClick={()=>handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
-                                <span onClick={()=>handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
+                                <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
+                                <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
+                                <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
                             </li>
 
                         </ul>
