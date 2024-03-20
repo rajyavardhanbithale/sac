@@ -13,12 +13,12 @@ export default function Home() {
     <>
       <Navbar></Navbar>
 
-      <div className=" mb-[71px]">
+      <div className="">
 
-        <div id="club" className=""></div>
         <Hero></Hero>
 
-        <div className="py-4"></div>
+        <div id="club" className=""></div>
+        <div className="-mt-3"></div>
         <Clubs></Clubs>
 
  
@@ -38,7 +38,5 @@ export default function Home() {
   );
 }
 
-// 1.Navbar transparent krna hai
-// 2. Jo college ka photo hai usko upar se extend krde cloud ko aur side side se crop krde taki image bada hojaye aur image ke upar STUDENT ACTIVITY CENTER likha jaye 
-// 3. Aur mission vision ko uske neeche le aana image ke neeche
-// 4. Aur jab club ke upar hover hoga na to club logo ko thora magnify kr dena
+
+
