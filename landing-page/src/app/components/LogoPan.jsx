@@ -16,7 +16,7 @@ export default function LogoPan() {
     return (
         <>
             {!hidden &&
-                <div className=" absolute inset-0 flex justify-center items-center">
+                <div className="overflow-hidden absolute inset-0 flex justify-center items-center">
                     <img src="logo/ssipmt.svg" alt="" className="img-anim" />
                     {/* <img src="logo/ssipmt.svg" alt="" className="" /> */}
                 </div>
