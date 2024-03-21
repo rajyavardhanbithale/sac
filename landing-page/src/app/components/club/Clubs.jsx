@@ -57,7 +57,7 @@ export default function Clubs() {
                     <>
                         {hover ? (
                             <div key={idx} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 hover:scale-105 transition duration-500 " />
+                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
                                 <span className="text-center mt-0">{item.name}</span>
                             </div>
                         ) : (

@@ -9,7 +9,7 @@ export default function ClubInfo(props) {
                 <div className="lg:container mx-auto flex px-5 md:py-12 lg:py-0  md:flex-col lg:flex-row flex-col items-center">
                     
                     <div className="lg:max-w-lg lg:w-full md:w-[40%] w-5/6 mb-10 md:mb-0">
-                        <img className=" object-cover object-center rounded" alt="hero" src={props?.image} />
+                        <img className="hover:scale-105 transition duration-1000 object-cover object-center rounded" alt="hero" src={props?.image} />
                         <h1 className="block lg:hidden title-font md:mx-auto text-center lg:mx-0  sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
                            
                             <Typewriter

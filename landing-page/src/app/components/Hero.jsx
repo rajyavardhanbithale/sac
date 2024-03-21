@@ -53,7 +53,7 @@ export default function Hero() {
                     </span>
                 </div>
                 <div>
-                    <img src="logo/sac_logo.svg" alt="" />
+                    <img src="logo/sac_logo.svg" alt="image" className="animate-fade" />
                 </div>
                 <div className="z-50 flex flex-col title h-full py-8 w-full justify-center align-middle text-black leading-8 tracking-wide ">
                     <span className="text-base md:text-2xl lg:text-3xl text-center p-2 m-2">Our Vision</span>

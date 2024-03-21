@@ -6,8 +6,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Title from './Title';
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Gallery() {
+    const [images,setImages] = useState([])
     const settings = {
         dots: true,
         infinite: true,
@@ -20,16 +23,29 @@ export default function Gallery() {
         prevArrow: <CustomPrevArrow />
     };
 
-    const images = [
-        '/assets/image1.jpg',
-        '/assets/image2.webp',
-        '/assets/image1.jpg',
-        '/assets/image2.webp',
-        '/assets/image1.jpg',
-        '/assets/image2.webp',
-        '/assets/image1.jpg',
-        '/assets/image2.webp',
-    ]
+    // const images = [
+    //     '/assets/image1.jpg',
+    //     '/assets/image2.webp',
+    //     '/assets/image1.jpg',
+    //     '/assets/image2.webp',
+    //     '/assets/image1.jpg',
+    //     '/assets/image2.webp',
+    //     '/assets/image1.jpg',
+    //     '/assets/image2.webp',
+    // ]
+
+    const handleFetch = async () =>{
+        try{
+            const response = await axios.get('api/gallery')
+            setImages(response?.data?.message)
+        }catch{
+            console.log("error");
+        }
+    }
+
+    useEffect(()=>{
+        handleFetch()
+    },[])
 
     return (
         <>
@@ -40,7 +56,7 @@ export default function Gallery() {
                     {images.map((image, index) => (
                         <div key={index}>
                             <Image
-                                src={image}
+                                src={`/upload/${image}`}
                                 width={0}
                                 height={0}
                                 sizes="100vw"
