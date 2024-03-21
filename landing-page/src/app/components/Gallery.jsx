@@ -36,8 +36,9 @@ export default function Gallery() {
 
     const handleFetch = async () =>{
         try{
-            const response = await axios.get('api/gallery')
-            setImages(response?.data?.message)
+            const response = await axios.get('/api/db')
+            setImages(response?.data?.data?.id)
+            // console.log(response?.data?.data?.id);
         }catch{
             console.log("error");
         }
@@ -56,7 +57,7 @@ export default function Gallery() {
                     {images.map((image, index) => (
                         <div key={index}>
                             <Image
-                                src={`/upload/${image}`}
+                                src={`https://lh3.googleusercontent.com/d/${image}=w1000?authuser=1/view`}
                                 width={0}
                                 height={0}
                                 sizes="100vw"
