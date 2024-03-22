@@ -21,8 +21,9 @@ class BackendAPI:
             f"/{self.app_version}/gallery/add", self.addImage, methods=["POST"])
         self.router.add_api_route(
             f"/{self.app_version}/gallery/remove", self.removeImage, methods=["POST"])
+        self.router.add_api_route(
+            f"/{self.app_version}/gallery/images", self.showImages, methods=["GET"])
         
-        # print(os.environ.get("MONGODB_URI"))
         
         # Mongo Connection 
         client = MongoClient(os.environ.get("MONGODB_URI")) 
@@ -46,6 +47,11 @@ class BackendAPI:
         
     def addImage(self, image_url: ImageModel):
         image_id = self.extractGoogleDriveId(image_url.image_url)
+        
+        result = self.collection_gallery.find_one({"id": image_id})
+        if result:
+            return "Image Exists !"
+        
         if image_id:
             update = self.collection_gallery.update_one(
                 {},  
@@ -63,6 +69,15 @@ class BackendAPI:
             )
 
         return remove.acknowledged
+    
+    def showImages(self):
+        try:
+            images = list(self.collection_gallery.find())
+            for image in images:
+                image.pop('_id', None)
+            return {"images": images[0]}
+        except Exception as e:
+            return {"error": str(e)}
         
 app  = FastAPI()
 
