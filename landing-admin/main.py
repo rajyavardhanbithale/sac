@@ -10,6 +10,7 @@ load_dotenv(find_dotenv())
 import re
 
 class ImageModel(BaseModel):
+    isID:bool = None
     image_url: str
 
 
@@ -61,7 +62,12 @@ class BackendAPI:
     
     
     def removeImage(self, image_url: ImageModel):
-        image_id = self.extractGoogleDriveId(image_url.image_url)
+        
+        if not image_url.isID:
+            image_id = self.extractGoogleDriveId(image_url.image_url)
+        else:
+            image_id = image_url.image_url
+            
         if image_id:
             remove = self.collection_gallery.update_many(
                 {"id": image_id},
