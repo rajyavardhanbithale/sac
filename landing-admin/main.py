@@ -38,8 +38,6 @@ class BackendAPI:
             if match and len(match.groups()) > 0:
                 return match.group(1)
             
-            elif len(url.split('/')[5]) >= 32:
-                return url.split('/')[5]
             else:
                 return None
         except:
@@ -48,7 +46,6 @@ class BackendAPI:
         
     def addImage(self, image_url: ImageModel):
         image_id = self.extractGoogleDriveId(image_url.image_url)
-        
         result = self.collection_gallery.find_one({"id": image_id})
         if result:
             return "Image Exists !"
@@ -87,17 +84,15 @@ class BackendAPI:
         
 app  = FastAPI()
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=[
-#         "http://localhost:3000",
-#         "http://192.168.29.82:3000",
-#         "https://agrihelp-3.vercel.app",
-#     ],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 api = BackendAPI()
 app.include_router(api.router)

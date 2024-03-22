@@ -2,38 +2,35 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import AdminGalleryPreview from './components/AdminGalleryPreview';
 
 export default function Upload() {
     const [url, setUrl] = useState('');
-    const [id, setID] = useState(null);
-    const [error, setError] = useState(null);
     const [key, setKey] = useState(null);
-    const [auth, setAuth] = useState(false);
+    const [id, setId] = useState(null);
+    const [error,setError] = useState(null);
+    const [auth, setAuth] = useState(true); //False
+    const [images, setImages] = useState(null);
 
 
-    function extractGoogleDriveId(url) {
-        const idRegex = /\/d\/([a-zA-Z0-9_-]+)\/view/;
-        const match = url.match(idRegex);
-        if (match && match.length > 1) {
-            return match[1];
-        } else {
-            return null;
-        }
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const response = await axios.post('http://0.0.0.0:8000/v1/gallery/add', {
+                "image_url": url
+            });
 
-        const extract_id = extractGoogleDriveId(url)
-        if (extract_id !== null && pushID(extract_id)) {
-            setID(extract_id)
-            setError(null)
-        } else {
-            setID(null)
-            setError("Invalid URL")
+            if (response.status === 200) {
+                setId("Image Added")
+                window.location.reload()
+            } else {
+                console.log('Failed to add image');
+            }
+        } catch (error) {
+            setError("invalid image url")
         }
-
     }
+
 
     const handleAuth = (e) => {
         e.preventDefault();
@@ -45,26 +42,32 @@ export default function Upload() {
         }
     }
 
-    const pushID = async (id) => {
-        try {
-            const response = await axios.post('/api/db', { id: id });
-            if (response.status === 200) {
-                console.log('ID pushed successfully');
-            } else {
-                console.error('Failed to push ID');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://0.0.0.0:8000/v1/gallery/images');
+                if (response.data && response.data.images) {
+                    setImages(response?.data?.images?.id)
+                    console.log(response?.data?.images?.id);
+                }
+            } catch (error) {
+                console.error('Error fetching images:', error);
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
+        };
+
+        fetchData();
+    }, []);
+
 
 
     return (
         <>
             {auth &&
-                <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+                <div className="m-20 flex flex-col items-center justify-center bg-white">
+                    <h1 className="text-3xl font-semibold py-10">Admin Image Upload</h1>
                     <div className="max-w-md w-full p-6 bg-gray-200 rounded-md shadow-md">
-                        <h2 className="text-xl font-semibold mb-4">Enter URL</h2>
+                        <h2 className="text-xl font-semibold mb-4 text-center">Enter URL</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
                                 <input
@@ -123,7 +126,9 @@ export default function Upload() {
                 </div>
             }
 
-
+            {images &&
+                <AdminGalleryPreview response={images} ></AdminGalleryPreview>
+            }
         </>
     );
 }
