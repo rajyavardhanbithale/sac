@@ -23,16 +23,6 @@ export default function Gallery() {
         prevArrow: <CustomPrevArrow />
     };
 
-    // const images = [
-    //     '/assets/image1.jpg',
-    //     '/assets/image2.webp',
-    //     '/assets/image1.jpg',
-    //     '/assets/image2.webp',
-    //     '/assets/image1.jpg',
-    //     '/assets/image2.webp',
-    //     '/assets/image1.jpg',
-    //     '/assets/image2.webp',
-    // ]
 
     const handleFetch = async () =>{
         try{

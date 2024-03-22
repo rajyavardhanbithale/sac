@@ -18,7 +18,7 @@ export default function AdminGalleryPreview(props) {
 
     const handleDeleteImage = async (idx) => {
         try {
-            const response = await axios.post('http://0.0.0.0:8000/v1/gallery/remove', {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/gallery/remove`, {
                 "isID": true,
                 "image_url": idx
             })
@@ -36,7 +36,7 @@ export default function AdminGalleryPreview(props) {
                 {props?.response?.map((id, idx) => (
                     <div
                         key={idx}
-                        className="w-[25%] h-[10%] relative hover:brightness-50 duration-1000"
+                        className="w-[25%] h-[10%] relative hover:brightness-50 duration-1000 my-auto"
                         onMouseEnter={() => handleMouseEnter(idx)}
                         onMouseLeave={handleMouseLeave}
                     >

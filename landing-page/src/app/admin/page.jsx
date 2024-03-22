@@ -16,7 +16,7 @@ export default function Upload() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://0.0.0.0:8000/v1/gallery/add', {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/gallery/add`, {
                 "image_url": url
             });
 
@@ -34,7 +34,7 @@ export default function Upload() {
 
     const handleAuth = (e) => {
         e.preventDefault();
-        // https://drive.google.com/file/d/1uTlZAVnR_1ISlsBXGGOmbVEjQQ6P9kVw/view
+        //https://drive.google.com/file/d/1uTlZAVnR_1ISlsBXGGOmbVEjQQ6P9kVw/view
         if (key.length >= 64 && key === 'e59389d9c8173527647450cc7e781d201e8e7122f5d85c017528ea5c2add8bfe') {
             setAuth(true)
         } else {
@@ -46,7 +46,7 @@ export default function Upload() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://0.0.0.0:8000/v1/gallery/images');
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/gallery/images`);
                 if (response.data && response.data.images) {
                     setImages(response?.data?.images?.id)
                     console.log(response?.data?.images?.id);
