@@ -1,14 +1,16 @@
 'use client'
 
 import { useState } from "react";
+import PopUpModal from "./PopUpModal";
 
 export default function AdminClubCard({ club }) {
-    const [showPopup, setShowPopup] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
-    const togglePopup = () => {
-        setShowPopup(!showPopup);
-    };
-
+    function handleModal(){
+        openModal()
+    }
     return (
         <>
             <div className="w-[80%] mx-auto bg-white rounded-xl shadow-md overflow-hidden ">
@@ -36,8 +38,9 @@ export default function AdminClubCard({ club }) {
                                 <p key={idx} className="text-gray-500">{contact}</p>
                             ))}
                         </div>
-                        <button onClick={togglePopup}>Open Form</button>
-                       
+                        
+                        <button onClick={handleModal}>EDIT</button>
+                        <PopUpModal isOpen={isModalOpen} closeModal={closeModal} data={club}  />
                     </div>
                 </div>
             </div>
