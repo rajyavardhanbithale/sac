@@ -1,8 +1,10 @@
 'use client'
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 
 export default function PopUpModal(props) {
+    const [success,setSuccess] = useState(null)
     useEffect(() => {
         if (props?.isOpen) {
             document.body.classList.add('modal-open');
@@ -28,11 +30,23 @@ export default function PopUpModal(props) {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/home/club`, formData);
+
+            if (response.status === 200) {
+                setSuccess("Club Modified Successfully")
+                window.location.reload()
+            } else {
+                console.log('Unable to Modify Club');
+            }
+        } catch (error) {
+            console.log(error);
+        }
 
     };
+
 
 
 
@@ -53,29 +67,34 @@ export default function PopUpModal(props) {
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="clubName" className="block font-semibold">Name</label>
-                                    <input type="text" id="clubName" name="clubName" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500" value={formData.clubName} onChange={handleChange} required />
+                                    <input type="text" id="clubName" name="clubName" className="border border-gray-300 bg-gray-200 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.clubName} onChange={handleChange} readOnly />
                                 </div>
                                 <div>
                                     <label htmlFor="mission" className="block font-semibold">Mission</label>
-                                    <textarea id="mission" name="mission" className="border border-gray-300 rounded-md px-4 py-2 h-28 w-full focus:outline-none focus:border-blue-500" value={formData.mission} onChange={handleChange} required />
+                                    <textarea id="mission" name="mission" className="border border-gray-300 rounded-md px-4 py-2 h-28 w-full focus:outline-none focus:border-gray-500" value={formData.mission} onChange={handleChange} required />
                                 </div>
                                 <div>
                                     <label htmlFor="vision" className="block font-semibold">Vision</label>
-                                    <textarea id="vision" name="vision" className="border border-gray-300 rounded-md px-4 py-2 h-28 w-full focus:outline-none focus:border-blue-500" value={formData.vision} onChange={handleChange} required />
+                                    <textarea id="vision" name="vision" className="border border-gray-300 rounded-md px-4 py-2 h-28 w-full focus:outline-none focus:border-gray-500" value={formData.vision} onChange={handleChange} required />
                                 </div>
                                 <div>
                                     <label htmlFor="incharge" className="block font-semibold">Incharge</label>
-                                    <input type="text" id="incharge" name="incharge" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500" value={formData.incharge} onChange={handleChange} required />
+                                    <input type="text" id="incharge" name="incharge" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.incharge} onChange={handleChange} required />
                                 </div>
                                 <div>
                                     <label htmlFor="contact" className="block font-semibold">Contact</label>
-                                    <input type="text" id="contact" name="contact" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500" value={formData.contact} onChange={handleChange} required />
+                                    <input type="text" id="contact" name="contact" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.contact} onChange={handleChange} required />
                                 </div>
 
                                 <div>
                                     <span className="text-red-500 animate-pulse"> * There should be no space between commas (Mr. Name,Mr.Name).</span>
                                 </div>
-                                <div className="flex w-full justify-center"> 
+
+                                <div>
+                                    <span className="text-green-500"> {success} </span>
+                                </div>
+
+                                <div className="flex w-full justify-center">
 
                                     <button type="submit" className="items-center bg-gray-500 w-[30%] hover:bg-gray-600 duration-1000 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:bg-gray-600">Submit</button>
                                 </div>

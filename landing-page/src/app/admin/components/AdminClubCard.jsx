@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import PopUpModal from "./PopUpModal";
+import { TbEdit } from "react-icons/tb";
+import { IoTrashBin } from "react-icons/io5";
+
 
 export default function AdminClubCard({ club }) {
     const [isModalOpen, setModalOpen] = useState(false);
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
 
-    function handleModal(){
+    function handleModal() {
         openModal()
     }
     return (
@@ -38,9 +41,24 @@ export default function AdminClubCard({ club }) {
                                 <p key={idx} className="text-gray-500">{contact}</p>
                             ))}
                         </div>
-                        
-                        <button onClick={handleModal}>EDIT</button>
-                        <PopUpModal isOpen={isModalOpen} closeModal={closeModal} data={club}  />
+
+                        <div className="flex justify-end gap-1">
+                            <button onClick={handleModal} className="flex bg-red-600 px-3 py-2 font-semibold text-white rounded-xl">
+                                Delete
+                                <span className="mt-1 ml-1">
+                                    <IoTrashBin />
+                                </span>
+                            </button>
+
+                            <button onClick={handleModal} className="flex bg-green-600 px-3 py-2 font-semibold text-white rounded-xl">
+                                EDIT
+                                <span className="mt-1 ml-1">
+                                    <TbEdit />
+                                </span>
+                            </button>
+
+                        </div>
+                        <PopUpModal isOpen={isModalOpen} closeModal={closeModal} data={club} />
                     </div>
                 </div>
             </div>
