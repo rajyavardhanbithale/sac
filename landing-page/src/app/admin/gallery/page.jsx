@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import AdminGalleryPreview from './components/AdminGalleryPreview';
+import AdminGalleryPreview from '../components/AdminGalleryPreview';
 
 export default function Upload() {
     const [url, setUrl] = useState('');

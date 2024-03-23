@@ -1,15 +1,17 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ClubInfo from "./Club_info"
 import { list } from "./club_list"
 import Title from "../Title"
 import Stats from "../Stats"
 import { PiLightbulbFilament } from "react-icons/pi";
+import axios from "axios"
 
 
 export default function Clubs() {
     const [hover, setHover] = useState(false)
     const [index, setIndex] = useState(0)
+    const [clubList, setClubList] = useState(null)
     const [seed, setSeed] = useState(1);
     function handleHover(index) {
         // console.log(index);
@@ -18,7 +20,22 @@ export default function Clubs() {
         setSeed(Math.random());
     }
 
+    const handleFetch = async () =>{
 
+        try{
+            const response = await axios.get('/api/db/home')
+            setClubList(response?.data?.data?.data)
+            // console.log(response?.data?.data?.data);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        handleFetch();
+    }, []);
+
+ 
     return (
         <>
 
@@ -40,13 +57,15 @@ export default function Clubs() {
                 ))}
             </div>
 
-            {hover &&
+            {(hover && club) &&
                 <>
                     <Stats></Stats>
-                    <ClubInfo image={list[index]?.logo}
-                        title={list[index]?.name}
-                        mission={list[index]?.mission}
-                        vision={list[index]?.vision}
+                    <ClubInfo image={clubList[index]?.logo}
+                        title={clubList[index]?.name}
+                        mission={clubList[index]?.mission}
+                        vision={clubList[index]?.vision}
+                        incharge={clubList[index]?.incharge}
+                        contact={clubList[index]?.contact}
                     // key={seed}
                     ></ClubInfo>
                 </>
