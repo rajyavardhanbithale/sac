@@ -19,6 +19,7 @@ class Club(BaseModel):
     mission:str
     vision:str
     incharge: List[str] | str
+    position: List[str] | str
     contact: List[str] | str
 
 class BackendAPI:
@@ -100,12 +101,12 @@ class BackendAPI:
                 "data.$.mission": club.mission,
                 "data.$.vision": club.vision,
                 "data.$.incharge": club.incharge,
+                "data.$.position": club.position,
                 "data.$.contact": club.contact,
             }
         }
         
         result = self.collection_home.update_one(query, update_operation)
-        print(None)
         return "ok"
         
 app  = FastAPI()

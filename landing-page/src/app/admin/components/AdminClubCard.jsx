@@ -30,8 +30,12 @@ export default function AdminClubCard({ club }) {
                             <p className="mt-2 text-gray-500">{club.vision}</p>
                         </div>
                         <div className="mt-4">
-                            <p className="mt-3 text-gray-800 text-lg font-semibold">Our Mission</p>
-                            {club.incharge.map((name, idx) => (
+                            <p className="mt-3 text-gray-800 text-lg font-semibold">Incharge</p>
+                            {club?.incharge?.map((name, idx) => (
+                                <p key={idx} className="text-gray-500">{name}</p>
+                            ))}
+                            <p className="mt-3 text-gray-800 text-lg font-semibold">Position</p>
+                            {club?.position?.map((name, idx) => (
                                 <p key={idx} className="text-gray-500">{name}</p>
                             ))}
                         </div>

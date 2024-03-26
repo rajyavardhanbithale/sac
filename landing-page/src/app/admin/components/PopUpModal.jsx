@@ -18,15 +18,20 @@ export default function PopUpModal(props) {
         mission: props?.data?.mission,
         vision: props?.data?.vision,
         incharge: props?.data?.incharge,
+        position: props?.data?.position,
         contact: props?.data?.contact,
 
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        let updatedValue = value;
+        if (name === 'position' || name === 'member' || name === 'contract') {
+            updatedValue = value.split(',');
+        }
         setFormData({
             ...formData,
-            [name]: value,
+            [name]: updatedValue,
         });
     };
 
@@ -80,6 +85,10 @@ export default function PopUpModal(props) {
                                 <div>
                                     <label htmlFor="incharge" className="block font-semibold">Incharge</label>
                                     <input type="text" id="incharge" name="incharge" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.incharge} onChange={handleChange} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="position" className="block font-semibold">Position</label>
+                                    <input type="text" id="position" name="position" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.position} onChange={handleChange} required />
                                 </div>
                                 <div>
                                     <label htmlFor="contact" className="block font-semibold">Contact</label>
