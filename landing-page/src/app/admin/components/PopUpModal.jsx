@@ -26,7 +26,7 @@ export default function PopUpModal(props) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         let updatedValue = value;
-        if (name === 'position' || name === 'member' || name === 'contract') {
+        if (name === 'position' || name === 'incharge' || name === 'contact') {
             updatedValue = value.split(',');
         }
         setFormData({
@@ -37,6 +37,13 @@ export default function PopUpModal(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
+
+        if (formData.contact.length !== formData.incharge.length || formData.contact.length !== formData.position.length) {
+            console.log("error");
+            return
+        }
+
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/home/club`, formData);
 
