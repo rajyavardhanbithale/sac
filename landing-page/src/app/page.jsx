@@ -11,27 +11,27 @@ export default function Home() {
   
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
 
       <div className="">
 
-        <Hero></Hero>
+        {/* <Hero></Hero>
 
         <div id="club" className=""></div>
         <div className="-mt-3"></div>
-        <Clubs></Clubs>
+        <Clubs></Clubs> */}
 
  
         <div id="incharge" className=""></div>
         <div className="mt-0 mb-0"></div>
         <Incharge></Incharge>
-
+{/* 
         <div id="gallery" className=""></div>
-        <Gallery></Gallery>
+        <Gallery></Gallery> */}
       </div>
 
       
-      <LogoPan></LogoPan>
+      {/* <LogoPan></LogoPan> */}
 
     <Footer></Footer>
     </>

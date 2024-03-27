@@ -17,7 +17,8 @@ export async function GET(req, res) {
     const dict = ext.map(item => ({
         club: item?.name,
         name: item?.incharge,
-        position: item?.position
+        position: item?.position,
+        image: item?.incharge_photo,
     }));
 
 

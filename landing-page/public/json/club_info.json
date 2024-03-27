@@ -17,6 +17,10 @@
                 "+91 232563256",
                 "+91 652365985"
             ],
+            "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
+            ],
             "logo": "assets/club1.svg"
         },
         {
@@ -34,6 +38,10 @@
             "contact": [
                 "+91 232563256",
                 "+91 652365985"
+            ],
+                        "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
             ],
             "logo": "assets/club1.svg"
         },
@@ -53,6 +61,10 @@
                 "+91 232563256",
                 "+91 652365985"
             ],
+                        "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
+            ],
             "logo": "assets/club1.svg"
         },
         {
@@ -70,6 +82,10 @@
             "contact": [
                 "+91 232563256",
                 "+91 652365985"
+            ],
+                        "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
             ],
             "logo": "assets/club1.svg"
         },
@@ -89,6 +105,10 @@
                 "+91 232563256",
                 "+91 652365985"
             ],
+                        "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
+            ],
             "logo": "assets/club1.svg"
         },
         {
@@ -106,6 +126,10 @@
             "contact": [
                 "+91 232563256",
                 "+91 652365985"
+            ],
+                        "incharge_photo":[
+                "/incharges/in3.webp",
+                "/incharges/in2.webp"
             ],
             "logo": "assets/club1.svg"
         }
