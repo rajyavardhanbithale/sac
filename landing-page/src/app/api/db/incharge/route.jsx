@@ -19,6 +19,7 @@ export async function GET(req, res) {
         name: item?.incharge,
         position: item?.position,
         image: item?.incharge_photo,
+        contact: item?.contact,
     }));
 
 

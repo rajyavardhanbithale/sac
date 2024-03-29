@@ -15,21 +15,21 @@ export default function ClubSidebar() {
             </div>
 
             <div className="mt-5">
-                <div className="mt-2 flex w-full justify-between align-middle">
-                    <span className="p-2 rounded-lg text-white font-bold text-xl">
+                <div className="mt-2 px-2 flex w-full justify-between align-middle">
+                    <span className="p-2 rounded-lg text-white font-bold ">
                         Home
                     </span>
-                    <span className="p-2 rounded-lg text-white font-bold text-xl my-auto">
+                    <span className="p-2 rounded-lg text-white font-bold  my-auto">
 
                         <IoMdHome></IoMdHome>
                     </span>
 
                 </div>
-                <div className="mt-0 flex w-full justify-between align-middle">
-                    <span className="p-2 rounded-lg text-white font-bold text-xl">
-                        Home
+                <div className="mt-0 px-2 flex w-full justify-between align-middle">
+                    <span className="p-2 rounded-lg text-white font-bold ">
+                        Join Now
                     </span>
-                    <span className="p-2 rounded-lg text-white font-bold text-xl my-auto">
+                    <span className="p-2 rounded-lg text-white font-bold  my-auto">
 
                         <HiOutlineDocumentAdd />
 
@@ -38,7 +38,6 @@ export default function ClubSidebar() {
                 </div>
 
                 <div className="mt-8">
-
                     <Collapse title="mission">
                         <span>
                             To foster a passion for robotics and automation, we offer a platform for students to design and construct robots, cultivating a culture of curiosity and problem-solving through hands-on robotics solutions.
@@ -70,6 +69,12 @@ export default function ClubSidebar() {
                             </span>
                         </div>
                     </Collapse>
+                </div>
+
+                <div className="flex justify-center w-full absolute bottom-5">
+                    <span className="text-white text-center text-xl">
+                        © 2024 SAC
+                    </span>
                 </div>
             </div>
         </>

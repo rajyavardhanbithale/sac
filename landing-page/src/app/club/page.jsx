@@ -1,7 +1,10 @@
+'use client'
+import { useEffect, useState } from "react";
 import Title from "../components/Title";
 import GalleryClub from "../components/clubPage/GalleryClub";
 import ClubSidebar from "../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
+import axios from "axios";
 
 
 export default function ClubsPage() {
@@ -185,6 +188,7 @@ export default function ClubsPage() {
         ]
     }
 
+    const [dataFac, setDataFac] = useState(null)
     const club = "Software Development Club"
 
     const info = data.data
@@ -194,7 +198,27 @@ export default function ClubsPage() {
             info: item.info
         }));
 
-    console.log(info[0].info[0].image);
+    const handleFetchFaculty = async () => {
+        try {
+            const response = await axios.get("/api/db/incharge")
+            if (response.status === 200) {
+                const filterFac = response?.data?.data.filter(item => item.club === club)
+                // console.log(filterFac);
+                setDataFac(filterFac[0])
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        handleFetchFaculty();
+    }, [])
+
+
+
+    console.log(dataFac && dataFac);
+
     return (
         <>
             <div className="flex w-full min-h-screen">
@@ -225,12 +249,33 @@ export default function ClubsPage() {
                         </div>
 
                         <div className="flex justify-center rounded-2xl mt-10">
-                            <iframe width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+                            <iframe width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
                         </div>
                     </div>
 
                     <div>
                         <Title title={"Faculty"}></Title>
+          
+                        <section class="text-gray-600 body-font">
+                            <div class="flex px-5 py-24 mx-auto gap-3">
+                                {dataFac && dataFac?.name?.map((item, idx) => (
+                                    <div key={idx} class="flex flex-wrap -m-4 justify-center mx-auto">
+                                        <div class="w-[100%] p-4">
+                                            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                                                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src={dataFac.image[idx]} alt="blog" />
+                                                <div class="p-6">
+                                                    <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1 capitalize">{dataFac.position[idx]}</h2>
+                                                    <h1 class="title-font text-lg font-medium text-gray-900 mb-3 capitalize">{item}</h1>
+                                                    <p class="leading-relaxed mb-3">{dataFac.contact[idx]}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+
+                            </div>
+                        </section>
                     </div>
 
 

@@ -37,7 +37,7 @@ export default function GalleryClub(props) {
     //     handleFetch()
     // },[])
 
-    console.log(props.data);
+
     return (
         <>
 
