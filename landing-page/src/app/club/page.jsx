@@ -1,3 +1,4 @@
+import Title from "../components/Title";
 import GalleryClub from "../components/clubPage/GalleryClub";
 import ClubSidebar from "../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
@@ -216,13 +217,23 @@ export default function ClubsPage() {
                         </div>
                     </div>
 
-                    <div className="p-8 mt-2">
-                        <span className="lg:text-xl mg:text-base font-medium leading-8 tracking-wide"> The Software Development Club (SDC) is dedicated to keeping its members at the forefront of technology. Through a vibrant environment that fosters creativity and innovation, SDC ensures that developers thrive. By participating in hackathons and technical events, members are encouraged to unleash their problem-solving skills. SDC also aims to boost members' career prospects by providing opportunities for skill development, networking, and career advancement, ultimately increasing their placement rates in the industry.</span>
+                    <div className="p-4 mt-2">
+                        <Title title={"About"}></Title>
+                        <div className="mt-5 text-center">
+
+                            <span className="lg:text-xl mg:text-base font-medium leading-8 tracking-wide "> The Software Development Club (SDC) is dedicated to keeping its members at the forefront of technology. Through a vibrant environment that fosters creativity and innovation, SDC ensures that developers thrive. By participating in hackathons and technical events, members are encouraged to unleash their problem-solving skills. SDC also aims to boost members' career prospects by providing opportunities for skill development, networking, and career advancement, ultimately increasing their placement rates in the industry.</span>
+                        </div>
+
+                        <div className="flex justify-center rounded-2xl mt-10">
+                            <iframe width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+                        </div>
                     </div>
 
-                    <div className="flex justify-center rounded-2xl">
-                        <iframe width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+                    <div>
+                        <Title title={"Faculty"}></Title>
                     </div>
+
+
                 </div>
             </div>
 

@@ -1,6 +1,8 @@
 'use client'
 
 import Collapse from "../Collapse"
+import { IoMdHome } from "react-icons/io";
+import { HiOutlineDocumentAdd } from "react-icons/hi";
 
 export default function ClubSidebar() {
     return (
@@ -12,38 +14,63 @@ export default function ClubSidebar() {
                 <span className="text-secondary drop-shadow-xl text-xl text-center font-semibold leading-8 tracking-wider">Software Development Club</span>
             </div>
 
-            <div className="mt-10">
-                <Collapse title="mission">
-                    <span>
-                        To foster a passion for robotics and automation, we offer a platform for students to design and construct robots, cultivating a culture of curiosity and problem-solving through hands-on robotics solutions.
+            <div className="mt-5">
+                <div className="mt-2 flex w-full justify-between align-middle">
+                    <span className="p-2 rounded-lg text-white font-bold text-xl">
+                        Home
                     </span>
-                </Collapse>
-                <Collapse title="vision">
-                    <span>
-                        A dynamic community of passionate robotics enthusiasts constantly striving to innovate and push the limits of what's possible with robotics technology and committed to applying their expertise to solve complex problems and make significant contributions to the advancement of automation.
-                    </span>
-                </Collapse>
-                <Collapse title="Incharge">
-                    <div className="flex flex-col">
+                    <span className="p-2 rounded-lg text-white font-bold text-xl my-auto">
 
+                        <IoMdHome></IoMdHome>
+                    </span>
+
+                </div>
+                <div className="mt-0 flex w-full justify-between align-middle">
+                    <span className="p-2 rounded-lg text-white font-bold text-xl">
+                        Home
+                    </span>
+                    <span className="p-2 rounded-lg text-white font-bold text-xl my-auto">
+
+                        <HiOutlineDocumentAdd />
+
+                    </span>
+
+                </div>
+
+                <div className="mt-8">
+
+                    <Collapse title="mission">
                         <span>
-                            Mr. Name
+                            To foster a passion for robotics and automation, we offer a platform for students to design and construct robots, cultivating a culture of curiosity and problem-solving through hands-on robotics solutions.
                         </span>
+                    </Collapse>
+                    <Collapse title="vision">
                         <span>
-                            Mr. designer
+                            A dynamic community of passionate robotics enthusiasts constantly striving to innovate and push the limits of what's possible with robotics technology and committed to applying their expertise to solve complex problems and make significant contributions to the advancement of automation.
                         </span>
-                    </div>
-                </Collapse>
-                <Collapse title="Contact">
-                    <div className="flex flex-col">
-                        <span>
-                            +91 232563256
-                        </span>
-                        <span>
-                            +91 652365985
-                        </span>
-                    </div>
-                </Collapse>
+                    </Collapse>
+                    <Collapse title="Incharge">
+                        <div className="flex flex-col">
+
+                            <span>
+                                Mr. Name
+                            </span>
+                            <span>
+                                Mr. designer
+                            </span>
+                        </div>
+                    </Collapse>
+                    <Collapse title="Contact">
+                        <div className="flex flex-col">
+                            <span>
+                                +91 232563256
+                            </span>
+                            <span>
+                                +91 652365985
+                            </span>
+                        </div>
+                    </Collapse>
+                </div>
             </div>
         </>
     )
