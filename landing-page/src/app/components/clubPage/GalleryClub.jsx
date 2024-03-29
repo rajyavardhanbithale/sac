@@ -13,8 +13,8 @@ export default function GalleryClub(props) {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
-        slidesToShow: 2,
+        speed: 3000,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -41,12 +41,12 @@ export default function GalleryClub(props) {
     return (
         <>
 
-            <div className="mt-16 w-[75%] mx-auto">
+            <div className="mt-16 w-[85%] mx-auto">
 
                 <Slider {...settings}>
                     {props.data[0].info.map((item, idx) => (
                         <div key={idx}>
-                            <img src={item.image} alt="" />
+                            <img src={item.image} alt="" className="p-2" />
                         </div>
                     ))}
                 </Slider>
@@ -70,7 +70,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 const CustomNextArrow = ({ onClick }) => (
     <button
-        className="z-10 absolute lg:-right-1 -right-7 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
+        className="z-10 absolute  -right-8 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
         onClick={onClick}
         type="button"
         aria-label="next"
