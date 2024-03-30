@@ -25,7 +25,7 @@ export default function Clubs() {
         try{
             const response = await axios.get('/api/db/home')
             setClubList(response?.data?.data?.data)
-            // console.log(response?.data?.data?.data);
+            console.log(response?.data?.data?.data);
         }catch(error){
             console.log(error);
         }
@@ -57,7 +57,7 @@ export default function Clubs() {
                 ))}
             </div>
 
-            {(hover && club) &&
+            {(hover && clubList) &&
                 <>
                     <Stats></Stats>
                     <ClubInfo image={clubList[index]?.logo}

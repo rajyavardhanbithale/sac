@@ -11,7 +11,7 @@ const database = client.db('SAC');
 const collection = database.collection('home');
 
 export async function GET(req, res) {
-    const data = await collection.find({}).toArray();
+    const data = await collection.find({"id":"club_info"}).toArray();
     const ext = data[0]?.data;
 
     const dict = ext.map(item => ({

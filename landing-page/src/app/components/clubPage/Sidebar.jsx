@@ -4,7 +4,7 @@ import Collapse from "../Collapse"
 import { IoMdHome } from "react-icons/io";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
 
-export default function ClubSidebar() {
+export default function ClubSidebar(props) {
     return (
         <>
             <div className="lg:p-5 p-6" >
@@ -40,42 +40,42 @@ export default function ClubSidebar() {
                 <div className="mt-8">
                     <Collapse title="mission">
                         <span>
-                            To foster a passion for robotics and automation, we offer a platform for students to design and construct robots, cultivating a culture of curiosity and problem-solving through hands-on robotics solutions.
+                            {props?.mission}
                         </span>
                     </Collapse>
                     <Collapse title="vision">
                         <span>
-                            A dynamic community of passionate robotics enthusiasts constantly striving to innovate and push the limits of what's possible with robotics technology and committed to applying their expertise to solve complex problems and make significant contributions to the advancement of automation.
+                            {props?.vision}
+
                         </span>
                     </Collapse>
                     <Collapse title="Incharge">
                         <div className="flex flex-col">
+                            {props?.incharge?.map((item, idx) => (
+                                <span key={idx}>
+                                    {item}
+                                </span>
 
-                            <span>
-                                Mr. Name
-                            </span>
-                            <span>
-                                Mr. designer
-                            </span>
+                            ))}
+
+
                         </div>
                     </Collapse>
                     <Collapse title="Contact">
                         <div className="flex flex-col">
-                            <span>
-                                +91 232563256
-                            </span>
-                            <span>
-                                +91 652365985
-                            </span>
+                            {props?.contact?.map((item, idx) => (
+                                <span key={idx}>
+                                    {item}
+                                </span>
+
+                            ))}
                         </div>
                     </Collapse>
+
                 </div>
 
-                <div className="flex justify-center w-full absolute bottom-5">
-                    <span className="text-white text-center text-xl">
-                        © 2024 SAC
-                    </span>
-                </div>
+
+
             </div>
         </>
     )

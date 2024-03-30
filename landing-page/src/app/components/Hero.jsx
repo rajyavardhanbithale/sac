@@ -2,11 +2,12 @@ export default function Hero() {
     return (
         <>
             <div className="hero h-[27rem]">
-                <img src="assets/hero.jpeg" alt="image" className="-z-50 absolute brightness-[0.2]" />
+                <img src="assets/hero.jpeg" alt="image" className="lg:block hidden -z-50" />
+                <img src="assets/hero_mobile.jpg" alt="image" className="block md:object-cover object-top object-scale-down w-full h-full lg:hidden -z-50" />
 
                 <div className="z-50 flex flex-col title h-full py-8 w-full justify-center align-middle text-secondary leading-8 tracking-wide ">
                     <span className="text-6xl  mx-auto font-semibold">
-                        Student Activity Center
+                        {/* Student Activity Center */}
                     </span>
                 </div>
 

@@ -1,9 +1,13 @@
 
 
+import Link from 'next/link';
+import { TbArrowUpRight } from 'react-icons/tb';
 import Typewriter from 'typewriter-effect';
 
 export default function ClubInfo(props) {
-    // console.log(props);
+    const buildURL = (title) => {
+        return title.toLowerCase().replaceAll(" ", "-")
+    }
     return (
         <>
             <section className="animate-fade-up text-gray-600 body-font">
@@ -50,21 +54,26 @@ export default function ClubInfo(props) {
                         </p>
 
                         <p className="text-lg mt-2 text-gray-800 w-full font-semibold">Incharges</p>
-          
+
                         {props?.incharge?.map((name, idx) => (
                             <p key={idx} className=" leading-relaxed">
                                 {name}, {props.contact[idx]}
                             </p>
                         ))}
 
+                        <Link href={`club/${buildURL(props?.title)}`}>
 
 
-                        {/* <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p> */}
+                            <button className="mt-5 px-4 py-2 bg-primary text-secondary rounded-xl">
+                                <span>
+                                    Explore More
+                                </span>
 
-                        {/* <button classNameName="mt-4 bg-accent px-4 py-1 text-secondary rounded-2xl">
-                            <IoMdArrowRoundBack classNameName="inline-flex mr-2"></IoMdArrowRoundBack>
-                            Back
-                        </button> */}
+                                <TbArrowUpRight className="inline-flex mr-l" />
+
+                            </button>
+
+                        </Link>
 
                     </div>
                 </div>

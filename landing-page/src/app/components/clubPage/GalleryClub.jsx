@@ -37,14 +37,14 @@ export default function GalleryClub(props) {
     //     handleFetch()
     // },[])
 
-
+ 
     return (
         <>
 
             <div className="mt-16 w-[85%] mx-auto">
 
                 <Slider {...settings}>
-                    {props.data[0].info.map((item, idx) => (
+                    {props?.data?.info.map((item, idx) => (
                         <div key={idx}>
                             <img src={item.image} alt="" className="p-2" />
                         </div>
