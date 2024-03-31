@@ -20,13 +20,12 @@ export default function Clubs() {
         setSeed(Math.random());
     }
 
-    const handleFetch = async () =>{
-
-        try{
+    const handleFetch = async () => {
+        try {
             const response = await axios.get('/api/db/home')
             setClubList(response?.data?.data?.data)
             console.log(response?.data?.data?.data);
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
@@ -35,7 +34,7 @@ export default function Clubs() {
         handleFetch();
     }, []);
 
- 
+
     return (
         <>
 
@@ -44,15 +43,12 @@ export default function Clubs() {
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
                 {list.map((item, idx) => (
                     <>
-                        {hover ? (
-                            null
-                        ) : (
+                        {!hover &&
                             <div key={idx} className="flex flex-col justify-center align-middle text-center" >
                                 <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="z-0 w-56  rounded-full hover:brightness-75 transition duration-500" />
                                 <span className="text-center mt-4">{item.name}</span>
                             </div>
-                        )}
-
+                        }
                     </>
                 ))}
             </div>
@@ -72,11 +68,11 @@ export default function Clubs() {
             }
 
             <div className={` w-full flex flex-wrap justify-center gap-6`}>
-                {list.map((item, idx) => (
+                {list.map((item, idx1) => (
                     <>
                         {hover ? (
-                            <div key={idx} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
+                            <div key={idx1} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
+                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (

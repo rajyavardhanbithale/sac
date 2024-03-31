@@ -103,6 +103,17 @@
   /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 
+@media only screen and (max-width: 600px){
+  .glass {
+    background: rgba(196, 196, 196, 0.473);
+    box-shadow: 0 8px 32px 0 rgba(135, 69, 31, 0.24);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-radius: 35px;
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+  }
+}
+
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */

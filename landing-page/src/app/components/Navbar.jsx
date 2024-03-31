@@ -16,7 +16,7 @@ export default function Navbar() {
         <>
                 <div className="flex w-full justify-center">
 
-                <nav className="glass w-3/4 px-8 py-1 fixed z-20 top-5">
+                <nav className="glass md:w-3/4 w-[90%] px-8 py-1 fixed z-20 top-5 ">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
                         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                             <Image src={"logo/sac_logo.svg"} height={44} width={44} alt="sac logo" className="rounded-xl drop-shadow-md" />
