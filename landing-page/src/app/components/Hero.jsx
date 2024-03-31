@@ -9,8 +9,8 @@ export default function Hero() {
 
             </div>
    
-            <div className="flex flex-col md:flex-row mt-5 mb-8  md:w-[90%] w-[80%]  mx-auto">
-                <div className="z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide mb-4 md:mb-0">
+            <div className="flex flex-col md:flex-row mt-5 mb-8  md:w-[90%] w-[80%]  mx-auto -z-50">
+                <div className="-z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide mb-4 md:mb-0">
                     <span className="text-base md:text-2xl lg:text-3xl text-center p-2 m-2 font-semibold">Our Mission</span>
                     <span className="text-xs md:text-base lg:text-xl text-center lg:p-2 lg:m-2">
                         Our goal is to create a vibrant innovation centre, where students from different fields come
@@ -22,7 +22,7 @@ export default function Hero() {
                     <img src="logo/sac_logo.svg" alt="image" className="md:w-full w-1/2 wlwcrion
                     mx-auto  animate-fade" />
                 </div>
-                <div className="z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide  ">
+                <div className="-z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide  ">
                     <span className="text-base md:text-2xl lg:text-3xl text-center p-2 m-2 font-semibold">Our Vision</span>
                     <span className="text-xs md:text-base lg:text-xl text-center lg:p-2 lg:m-2">
                         Our aim is to create a collaborative space in which an innovative idea can be converted into a

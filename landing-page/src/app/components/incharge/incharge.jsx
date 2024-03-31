@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Incharge() {
-    const [speed, setSpeed] = useState(50)
+    const [speed, setSpeed] = useState(10)
     const [data, setData] = useState(null)
 
 
