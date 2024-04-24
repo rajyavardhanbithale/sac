@@ -41,7 +41,7 @@ export default function Gallery() {
     return (
         <>
             <Title title={"Gallery"} />
-            <div className="mt-16 w-[75%] mx-auto">
+            <div className="mt-16  lg:w-[85%] mx-auto">
 
                 <Slider {...settings}>
                     {images.map((image, index) => (
@@ -65,7 +65,7 @@ export default function Gallery() {
 
 const CustomPrevArrow = ({ onClick }) => (
     <button
-        className="z-10 absolute lg:-left-8  -left-7  top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
+        className="z-10 absolute lg:-left-8  left-2  top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
         onClick={onClick}
         type="button" 
         aria-label="preview"
@@ -77,7 +77,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 const CustomNextArrow = ({ onClick }) => (
     <button
-        className="z-10 absolute lg:-right-1 -right-7 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
+        className="z-10 absolute lg:-right-1 right-2 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
         onClick={onClick}
         type="button" 
         aria-label="next"

@@ -19,7 +19,17 @@ export default function GalleryClub(props) {
         autoplay: true,
         autoplaySpeed: 3000,
         nextArrow: <CustomNextArrow />,
-        prevArrow: <CustomPrevArrow />
+        prevArrow: <CustomPrevArrow />,
+        responsive: [
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                autoplaySpeed: 5000,
+                speed: 1000,
+              }
+            }
+          ]
     };
 
 
@@ -41,7 +51,7 @@ export default function GalleryClub(props) {
     return (
         <>
 
-            <div className="mt-16 w-[85%] mx-auto">
+            <div className="mt-16 w-[100%] sm:w-[85%] mx-auto">
 
                 <Slider {...settings}>
                     {props?.data?.info.map((item, idx) => (

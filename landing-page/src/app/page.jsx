@@ -26,8 +26,11 @@ export default function Home() {
         <div className="mt-0 mb-0"></div>
         <Incharge></Incharge>
 
+
         <div id="gallery" className=""></div>
+
         <Gallery></Gallery>
+        <div className="mt-20"></div>
       </div>
 
       
