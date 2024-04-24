@@ -23,23 +23,6 @@ export default async function ClubsPage(request) {
     }
     const club = capitalize(clubGET.id.replaceAll("-", " "))
 
-    const handleFetch = async () => {
-        try {
-            const response = await axios.get(`/api/db/club?page=${club}`)
-            if (response.status === 200) {
-                console.log(response.data);
-                setData(response.data)
-                const data = response.data
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    // useEffect(() => {
-    //     handleFetch();
-    // }, [])
-
     let data;
     try {
         const response =  await axios.get(process.env.NEXT_PUBLIC_ENDPOINT_PRIVATE+`/api/db/club?page=${club}`)
