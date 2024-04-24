@@ -8,7 +8,7 @@ export default function ClubSidebar(props) {
     return (
         <>
             <div className="lg:p-5 p-6" >
-                <img src="logo/sac_logo.svg" alt="logo" className="rounded-full drop-shadow-xl w-3/4 mx-auto" />
+                <img src="/logo/sac_logo.svg" alt="logo" className="rounded-full drop-shadow-xl w-3/4 mx-auto" />
             </div>
             <div className="flex justify-center p-3">
                 <span className="text-secondary drop-shadow-xl text-xl text-center font-semibold leading-8 tracking-wider">Software Development Club</span>

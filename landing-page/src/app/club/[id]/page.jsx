@@ -1,16 +1,17 @@
-'use client'
-import { useEffect, useState } from "react";
+// 'use client'
+// import { useEffect, useState } from "react";
 import Title from "../../components/Title";
 import GalleryClub from "../../components/clubPage/GalleryClub";
 import ClubSidebar from "../../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 
-export default function ClubsPage() {
-    const [data, setData] = useState(null)
-    const clubGET = useParams()
+export default async function ClubsPage(request) {
+    // const [data, setData] = useState(null)
+    // const clubGET = useParams()
+    const clubGET = request?.params
 
     function capitalize(paragraph) {
         const words = paragraph.split(" ");
@@ -28,19 +29,28 @@ export default function ClubsPage() {
             if (response.status === 200) {
                 console.log(response.data);
                 setData(response.data)
+                const data = response.data
             }
         } catch (error) {
             console.log(error);
         }
     }
 
-    useEffect(() => {
-        handleFetch();
-    }, [])
+    // useEffect(() => {
+    //     handleFetch();
+    // }, [])
 
+    let data;
+    try {
+        const response =  await axios.get(process.env.NEXT_PUBLIC_ENDPOINT_PRIVATE+`/api/db/club?page=${club}`)
+        if (response.status === 200) {
+            // console.log(response.data);
+            data = response.data
+        }
+    } catch (error) {
+        console.log(error);
+    }
 
-
-    // console.log(data && data);
 
     return (
         <>
