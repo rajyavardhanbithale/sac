@@ -24,7 +24,7 @@ export default function Clubs() {
         try {
             const response = await axios.get('/api/db/home')
             setClubList(response?.data?.data?.data)
-            console.log(response?.data?.data?.data);
+            // console.log(response?.data?.data?.data);
         } catch (error) {
             console.log(error);
         }
@@ -76,7 +76,7 @@ export default function Clubs() {
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (
-                            null
+                            <div className="" key={idx}></div>
                         )}
 
                     </>
