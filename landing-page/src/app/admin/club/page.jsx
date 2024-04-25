@@ -12,9 +12,9 @@ export default function AdminClub() {
         try {
             const response = await axios.get('/api/db/home')
             setClubList(response?.data?.data?.data)
-            console.log(response?.data?.data?.data);
+            // // console.log(response?.data?.data?.data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 

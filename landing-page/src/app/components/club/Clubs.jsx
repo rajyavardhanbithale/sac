@@ -14,7 +14,7 @@ export default function Clubs() {
     const [clubList, setClubList] = useState(null)
     const [seed, setSeed] = useState(1);
     function handleHover(index) {
-        // console.log(index);
+        // // console.log(index);
         setIndex(index)
         setHover(true)
         setSeed(Math.random());
@@ -24,9 +24,9 @@ export default function Clubs() {
         try {
             const response = await axios.get('/api/db/home')
             setClubList(response?.data?.data?.data)
-            // console.log(response?.data?.data?.data);
+            // // console.log(response?.data?.data?.data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 
@@ -76,7 +76,7 @@ export default function Clubs() {
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (
-                            <div className="" key={idx}></div>
+                            null
                         )}
 
                     </>

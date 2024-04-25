@@ -37,9 +37,9 @@ export default function GalleryClub(props) {
     //     try{
     //         const response = await axios.get('/api/db')
     //         setImages(response?.data?.data?.id)
-    //         // console.log(response?.data?.data?.id);
+    //         // // console.log(response?.data?.data?.id);
     //     }catch{
-    //         console.log("error");
+    //         // console.log("error");
     //     }
     // }
 
@@ -68,7 +68,7 @@ export default function GalleryClub(props) {
 
 const CustomPrevArrow = ({ onClick }) => (
     <button
-        className="z-10 absolute lg:-left-8  -left-7  top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
+        className="z-10 absolute lg:-left-8  sm:-left-7 -left-2  top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
         onClick={onClick}
         type="button"
         aria-label="preview"
@@ -80,7 +80,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 const CustomNextArrow = ({ onClick }) => (
     <button
-        className="z-10 absolute  -right-8 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
+        className="z-10 absolute sm:-right-8 -right-3 top-1/2 flex items-center justify-center align-middle  text-xl transform -translate-y-1/2 bg-accent hover:brightness-75 transition duration-500 ease-in text-white px-1 py-1 rounded-full"
         onClick={onClick}
         type="button"
         aria-label="next"

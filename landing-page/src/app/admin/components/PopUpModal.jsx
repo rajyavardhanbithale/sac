@@ -37,10 +37,10 @@ export default function PopUpModal(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        // // console.log(formData);
 
         if (formData.contact.length !== formData.incharge.length || formData.contact.length !== formData.position.length) {
-            console.log("error");
+            // console.log("error");
             return
         }
 
@@ -51,10 +51,10 @@ export default function PopUpModal(props) {
                 setSuccess("Club Modified Successfully")
                 window.location.reload()
             } else {
-                console.log('Unable to Modify Club');
+                // console.log('Unable to Modify Club');
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
 
     };

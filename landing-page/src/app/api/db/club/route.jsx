@@ -37,7 +37,7 @@ export async function POST(request) {
         { $push: { id: body.id } }
     );
 
-    console.log(body.id);
+    // console.log(body.id);
 
     return NextResponse.json({ response: result.modifiedCount });
 }

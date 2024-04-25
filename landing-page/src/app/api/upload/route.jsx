@@ -15,7 +15,7 @@ export const POST = async (req, res) => {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   const filename = file.name.replaceAll(" ", "_");
-  console.log(filename);
+  // console.log(filename);
 
   try {
     await writeFile(
@@ -26,7 +26,7 @@ export const POST = async (req, res) => {
     return NextResponse.json({ Message: "Success", status: 200 });
   } catch (error) {
   
-    console.log("Error occurred ", error);
+    // console.log("Error occurred ", error);
     return NextResponse.json({ Message: "Failed", status: 500 });
   }
 };

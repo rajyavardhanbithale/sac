@@ -6,6 +6,7 @@ import ClubSidebar from "../../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
+import BottomBarClub from "@/app/components/clubPage/BottomBar";
 
 
 export default async function ClubsPage(request) {
@@ -24,25 +25,35 @@ export default async function ClubsPage(request) {
     const club = capitalize(clubGET.id.replaceAll("-", " "))
 
     let data;
+
     try {
-        const response =  await axios.get(process.env.NEXT_PUBLIC_ENDPOINT_PRIVATE+`/api/db/club?page=${club}`)
+        const response = await axios.get(process.env.NEXT_PUBLIC_ENDPOINT_PRIVATE + `/api/db/club?page=${club}`)
         if (response.status === 200) {
-            // console.log(response.data);
+            // // console.log(response.data);
             data = response.data
         }
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 
 
     return (
         <>
             <div className="flex w-full min-h-screen">
+                <div className="block sm:hidden fixed bottom-0 w-full z-50">
+                    <BottomBarClub mission={data?.data?.mission}
+                        vision={data?.data?.vision}
+                        incharge={data?.data?.incharge}
+                        contact={data?.data?.contact}
+                        />
+                </div>
+
+
                 <div className="hidden sm:block lg:w-[18%] w-[25%] max-h-screen overflow-y-auto bg-primary fixed left-0 top-0 h-full">
                     <ClubSidebar mission={data?.data?.mission}
-                        vision={data?.data?.vision}   
-                        incharge={data?.data?.incharge}   
-                        contact={data?.data?.contact}   
+                        vision={data?.data?.vision}
+                        incharge={data?.data?.incharge}
+                        contact={data?.data?.contact}
                     >
 
                     </ClubSidebar>
@@ -68,16 +79,16 @@ export default async function ClubsPage(request) {
                         <Title title={"About"}></Title>
                         <div className="mt-5 text-justify">
                             <span className="hidden sm:block lg:text-xl md:text-base font-medium leading-8 tracking-wide ">
-                            {data?.data?.description}
-                            </span> 
+                                {data?.data?.description}
+                            </span>
                             <span className="block sm:hidden lg:text-xl md:text-base font-medium leading-8 tracking-wide ">
-                            {data?.data?.description?.split(".")[data?.data?.description?.split(".").length/2+0.5]}
+                                {data?.data?.description?.split(".")[data?.data?.description?.split(".").length / 2 + 0.5]}
                             </span>
                         </div>
 
                         <div className="flex justify-center rounded-2xl mt-10">
-                            <iframe className="hidden sm:block rounded-2xl" width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe>
-                            <iframe className="block sm:hidden rounded-2xl" width="400" height="200" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe>
+                            <iframe className="hidden sm:block rounded-2xl" width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe>
+                            <iframe className="block sm:hidden rounded-2xl" width="400" height="200" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe>
                         </div>
                     </div>
 
@@ -109,6 +120,9 @@ export default async function ClubsPage(request) {
 
                 </div>
             </div>
+
+
+
 
 
         </>

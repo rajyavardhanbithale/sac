@@ -7,7 +7,7 @@ export async function GET() {
 
     try {
         const files = await fs.promises.readdir(folderPath);
-        console.log(files);
+        // console.log(files);
         return NextResponse.json({ message: files, status: 200 });
     } catch (err) {
         console.error('Error reading files:', err);

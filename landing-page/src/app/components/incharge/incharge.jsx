@@ -22,7 +22,7 @@ export default function Incharge() {
                 setData(response?.data?.data)
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 

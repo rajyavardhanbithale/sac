@@ -28,9 +28,9 @@ export default function Gallery() {
         try{
             const response = await axios.get('/api/db')
             setImages(response?.data?.data?.id)
-            // console.log(response?.data?.data?.id);
+            // // console.log(response?.data?.data?.id);
         }catch{
-            console.log("error");
+            // console.log("error");
         }
     }
 

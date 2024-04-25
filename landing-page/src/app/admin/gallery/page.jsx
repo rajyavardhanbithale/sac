@@ -24,7 +24,7 @@ export default function Upload() {
                 setId("Image Added")
                 window.location.reload()
             } else {
-                console.log('Failed to add image');
+                // console.log('Failed to add image');
             }
         } catch (error) {
             setError("invalid image url")
@@ -49,7 +49,7 @@ export default function Upload() {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/gallery/images`);
                 if (response.data && response.data.images) {
                     setImages(response?.data?.images?.id)
-                    console.log(response?.data?.images?.id);
+                    // // console.log(response?.data?.images?.id);
                 }
             } catch (error) {
                 console.error('Error fetching images:', error);
