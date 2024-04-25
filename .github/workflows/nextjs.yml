@@ -35,10 +35,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: dir
+      - name: dumo
         run: |
           pwd
           ls
+          echo 'github.workspace === ${{ github.workspace }}'
+          echo "GITHUB_WORKSPACE === $GITHUB_WORKSPACE"
+          echo 'runner.workspace === ${{ runner.workspace }}'
+          echo "RUNNER_WORKSPACE === $RUNNER_WORKSPACE"
+          
       - name: Detect package manager
         id: detect-package-manager
         run: |
