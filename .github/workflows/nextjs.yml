@@ -28,6 +28,8 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./landing-page
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,16 +37,13 @@ jobs:
         run: cd landing-page
       - name: Detect package manager
         id: detect-package-manager
-        run: |
-          pwd
-          cd landing-page
-          echo ${{ github.workspace }}
-          if [ -f "yarn.lock" ]; then
+        run: 
+          if [ -f "${{ env.env.github.workspace }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
             exit 0
-          elif [ -f "package.json" ]; then
+          elif [ -f "${{ env.github.workspace }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
@@ -54,9 +53,6 @@ jobs:
             exit 1
           fi
       - name: Setup Node
-        run : | 
-          cd landing-page 
-          pwd 
         uses: actions/setup-node@v4
         with:
           node-version: "20"
