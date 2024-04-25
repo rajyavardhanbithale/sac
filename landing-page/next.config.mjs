@@ -2,7 +2,7 @@
 
 
 const nextConfig = {
-    //output: 'export',
+    output: 'export',
     // webpack: true,
 };
 
