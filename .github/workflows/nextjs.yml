@@ -50,6 +50,12 @@ jobs:
           echo 'runner.workspace === ${{ runner.workspace }}'
           echo "RUNNER_WORKSPACE === $RUNNER_WORKSPACE"
 
+      - name: Coverage
+        run: |
+          echo ${{ secrets.MONGODB_URI }}
+          yarn 
+          yarn test --coverage --watchAll=false 
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
