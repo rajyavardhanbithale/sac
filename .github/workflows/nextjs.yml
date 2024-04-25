@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        working-directory: ./landing-page
         uses: actions/checkout@v4
       - name: Change directory to landing-page
         run: cd landing-page
