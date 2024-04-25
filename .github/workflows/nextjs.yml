@@ -27,10 +27,10 @@ concurrency:
 defaults:
   run:
     working-directory: landing-page
-    env:
-      MONGODB_URI: ${{ secrets.MONGODB_URI }}
-      NEXT_PUBLIC_ENDPOINT_PRIVATE: ${{ secrets.NEXT_PUBLIC_ENDPOINT_PRIVATE }}
 
+env:
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  NEXT_PUBLIC_ENDPOINT_PRIVATE: ${{ secrets.NEXT_PUBLIC_ENDPOINT_PRIVATE }}
 jobs:
   # Build job
   build:
