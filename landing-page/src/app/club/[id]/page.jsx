@@ -1,11 +1,8 @@
-// 'use client'
-// import { useEffect, useState } from "react";
 import Title from "../../components/Title";
 import GalleryClub from "../../components/clubPage/GalleryClub";
 import ClubSidebar from "../../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import BottomBarClub from "@/app/components/clubPage/BottomBar";
 
 

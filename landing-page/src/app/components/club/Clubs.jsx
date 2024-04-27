@@ -1,9 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import ClubInfo from "./Club_info"
-import { list } from "./club_list"
 import Title from "../Title"
-import Stats from "../Stats"
 import { PiLightbulbFilament } from "react-icons/pi";
 import axios from "axios"
 
@@ -41,7 +39,7 @@ export default function Clubs() {
             <Title title={"Our Clubs"} />
 
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
-                {list.map((item, idx) => (
+                {clubList?.map((item, idx) => (
                     <>
                         {!hover &&
                             <div key={idx} className="flex flex-col justify-center align-middle text-center" >
@@ -55,7 +53,7 @@ export default function Clubs() {
 
             {(hover && clubList) &&
                 <>
-                    <Stats></Stats>
+                    {/* <Stats></Stats> */}
                     <ClubInfo image={clubList[index]?.logo}
                         title={clubList[index]?.name}
                         mission={clubList[index]?.mission}
@@ -68,11 +66,11 @@ export default function Clubs() {
             }
 
             <div className={` w-full flex flex-wrap justify-center gap-6`}>
-                {list.map((item, idx1) => (
+                {clubList?.map((item, idx1) => (
                     <>
                         {hover ? (
                             <div key={idx1} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto w-32 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
+                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto w-48 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (

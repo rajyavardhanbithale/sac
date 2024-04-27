@@ -5,7 +5,6 @@ import Hero from "./components/Hero";
 import Incharge from "./components/incharge/incharge";
 import LogoPan from "./components/LogoPan";
 import Navbar from "./components/Navbar";
-import Stats from "./components/Stats";
 
 export default function Home() {
   

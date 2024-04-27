@@ -19,7 +19,7 @@ export default function Hero() {
                     </span>
                 </div>
                 <div>
-                    <img src="logo/sac_logo.svg" alt="image" className="md:w-full w-1/2 wlwcrion
+                    <img src="assets/sac_logo.png" alt="image" className="md:w-full w-full
                     mx-auto  animate-fade" />
                 </div>
                 <div className="-z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide  ">
