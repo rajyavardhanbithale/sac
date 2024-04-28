@@ -45,9 +45,15 @@ export default async function ClubsPage(request) {
 
     return (
         <>
-            <Navbar></Navbar>
+            <div className="flex justify-end">
+                <div className="lg:w-[82%] sm:w-[75%] w-[100%]">
+                    <Navbar></Navbar>
+                </div>
+            </div>
 
-            <div className="mt-16 flex w-full min-h-screen">
+
+
+            <div className="md:mt-16 mt-20 flex w-full min-h-screen">
                 <div className="block sm:hidden fixed bottom-0 w-full z-50">
                     <BottomBarClub mission={data?.data?.mission}
                         vision={data?.data?.vision}
