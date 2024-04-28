@@ -91,7 +91,7 @@ export default async function ClubsPage(request) {
 
                     <div className="p-4 sm:p-2 mt-2">
                         <Title title={"About"}></Title>
-                        <div className="flex lg:flex-row flex-col mt-5 text-justify">
+                        <div className="flex lg:flex-row flex-col mt-0 text-justify">
                             <div>
                                 <div className="w-full justify-center rounded-2xl mt-5 py-5">
                                     {/* <iframe className="hidden sm:block rounded-2xl" width="800" height="400" src="https://www.youtube.com/embed/VkK8XyBbtq8?si=Wrq_aFX1Ge6r-AAA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe> */}
