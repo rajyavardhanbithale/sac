@@ -106,7 +106,7 @@ export default async function ClubsPage(request) {
                                     {data?.data?.description}
                                 </span>
                                 <span className="block sm:hidden lg:text-xl md:text-base font-medium leading-8 tracking-wide ">
-                                    {data?.data?.description?.split(".")[data?.data?.description?.split(".").length / 2 + 0.5]}
+                                    {data?.data?.description?.split(".").slice(0,data?.data?.description?.split(".").length / 2 + 0.5)}
                                 </span>
                             </div>
 
