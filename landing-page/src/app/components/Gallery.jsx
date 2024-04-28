@@ -20,7 +20,25 @@ export default function Gallery() {
         autoplay: true,
         autoplaySpeed: 3000,
         nextArrow: <CustomNextArrow />,
-        prevArrow: <CustomPrevArrow />
+        prevArrow: <CustomPrevArrow />,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    autoplaySpeed: 5000,
+                    speed: 1000,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    autoplaySpeed: 5000,
+                    speed: 1000,
+                }
+            }
+        ]
     };
 
 
