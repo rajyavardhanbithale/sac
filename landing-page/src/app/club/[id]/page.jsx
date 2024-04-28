@@ -4,6 +4,7 @@ import ClubSidebar from "../../components/clubPage/Sidebar";
 import { MdOutlineInfo } from "react-icons/md";
 import axios from "axios";
 import BottomBarClub from "@/app/components/clubPage/BottomBar";
+import Footer from "@/app/components/Footer";
 
 
 export default async function ClubsPage(request) {
@@ -130,8 +131,22 @@ export default async function ClubsPage(request) {
                     </div>
 
 
+
+                </div>
+
+            </div>
+
+
+
+
+            <div className="flex justify-end">
+                <div className="lg:w-[82%] sm:w-[75%] w-[95%]">
+
+                    <Footer></Footer>
                 </div>
             </div>
+
+
 
 
 

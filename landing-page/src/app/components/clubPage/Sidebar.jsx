@@ -3,8 +3,10 @@
 import Collapse from "../Collapse"
 import { IoMdHome } from "react-icons/io";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
+import Link from "next/link";
 
 export default function ClubSidebar(props) {
+
     return (
         <>
             <div className="lg:p-5 p-6" >
@@ -15,31 +17,33 @@ export default function ClubSidebar(props) {
             </div>
 
             <div className="mt-5">
-                <div className="mt-2 px-2 flex w-full justify-between align-middle">
-                    <span className="p-2 rounded-lg text-white font-bold ">
-                        Home
-                    </span>
-                    <span className="p-2 rounded-lg text-white font-bold  my-auto">
+                <Link href={"/"}>
+                    <div className="mt-2 px-2 flex w-full justify-between align-middle">
 
-                        <IoMdHome></IoMdHome>
-                    </span>
+                        <span className="p-2 rounded-lg text-white font-bold ">
+                            Home
+                        </span>
+                        <span className="p-2 rounded-lg text-white font-bold  my-auto">
+                            <IoMdHome></IoMdHome>
 
-                </div>
-                <div className="mt-0 px-2 flex w-full justify-between align-middle">
-                    <a href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank">
+                        </span>
+
+                    </div>
+                </Link>
+
+                <a href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank">
+                    <div className="mt-0 px-2 flex w-full justify-between align-middle">
+
 
                         <span className="p-2 rounded-lg text-white font-bold ">
                             Join Now
                         </span>
-                    </a>
-                    <a href="https://forms.gle/aafoMXUutj5ynJzB7" target="_black">
                         <span className="p-2 rounded-lg text-white font-bold  my-auto">
-
                             <HiOutlineDocumentAdd />
-
                         </span>
-                    </a>
-                </div>
+
+                    </div>
+                </a>
 
                 <div className="mt-8">
                     <Collapse title="mission">

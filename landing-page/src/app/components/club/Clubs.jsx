@@ -70,7 +70,7 @@ export default function Clubs() {
                     <>
                         {hover ? (
                             <div key={idx1} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto w-48 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
+                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto md:w-48 w-36 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (
@@ -86,7 +86,8 @@ export default function Clubs() {
                     <div className="flex mt-1 mr-2 text-gray-500 text-base">
                         <PiLightbulbFilament></PiLightbulbFilament>
                     </div>
-                    <span className="text-gray-500 text-base">Hover to know more about club</span>
+                    <span className="hidden sm:block text-gray-500 text-base">Hover to know more about club</span>
+                    <span className="sm:hidden block text-gray-500 text-base">Click to know more about club</span>
                 </div>
             }
 
