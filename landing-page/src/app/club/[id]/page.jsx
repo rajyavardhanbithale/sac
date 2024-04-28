@@ -5,6 +5,7 @@ import { MdOutlineInfo } from "react-icons/md";
 import axios from "axios";
 import BottomBarClub from "@/app/components/clubPage/BottomBar";
 import Footer from "@/app/components/Footer";
+import Navbar from "@/app/components/Navbar";
 
 
 export default async function ClubsPage(request) {
@@ -44,7 +45,9 @@ export default async function ClubsPage(request) {
 
     return (
         <>
-            <div className="flex w-full min-h-screen">
+            <Navbar></Navbar>
+
+            <div className="mt-16 flex w-full min-h-screen">
                 <div className="block sm:hidden fixed bottom-0 w-full z-50">
                     <BottomBarClub mission={data?.data?.mission}
                         vision={data?.data?.vision}
@@ -140,7 +143,7 @@ export default async function ClubsPage(request) {
 
 
             <div className="flex justify-end">
-                <div className="lg:w-[82%] sm:w-[75%] w-[95%]">
+                <div className="lg:w-[82%] sm:w-[75%] w-[100%]">
 
                     <Footer></Footer>
                 </div>
