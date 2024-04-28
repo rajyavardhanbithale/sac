@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const { webpackPlugin: utwm } = require('unplugin-tailwindcss-mangle')
+// const { webpackPlugin: utwm } = require('unplugin-tailwindcss-mangle')
 
 
 const nextConfig = {
-    //output: 'export',
+    // output: 'export',
     // webpack: true,
     // distDir: 'build',
     // webpack: (config) => {

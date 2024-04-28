@@ -18,9 +18,8 @@ export default function Hero() {
                         together to explore new frontiers in technology, entrepreneurship, and creativity
                     </span>
                 </div>
-                <div>
-                    <img src="assets/sac_logo.png" alt="image" className="md:w-full w-full
-                    mx-auto  animate-fade" />
+                <div className="flex justify-center">
+                    <img src="assets/sac_logo.png" alt="image" className="md:w-full w-full my-auto mx-auto  animate-fade" />
                 </div>
                 <div className="-z-50 flex flex-col title h-full md:py-8 w-full justify-center align-middle text-black leading-8 tracking-wide  ">
                     <span className="text-base md:text-2xl lg:text-3xl text-center p-2 m-2 font-semibold">Our Vision</span>

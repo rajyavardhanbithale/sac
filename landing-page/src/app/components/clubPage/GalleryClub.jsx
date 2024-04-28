@@ -14,22 +14,30 @@ export default function GalleryClub(props) {
         dots: true,
         infinite: true,
         speed: 3000,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         nextArrow: <CustomNextArrow />,
         prevArrow: <CustomPrevArrow />,
         responsive: [
             {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                autoplaySpeed: 5000,
-                speed: 1000,
-              }
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    autoplaySpeed: 5000,
+                    speed: 1000,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    autoplaySpeed: 5000,
+                    speed: 1000,
+                }
             }
-          ]
+        ]
     };
 
 
@@ -46,17 +54,18 @@ export default function GalleryClub(props) {
     // useEffect(()=>{
     //     handleFetch()
     // },[])
+    console.log(props.data);
 
- 
     return (
         <>
 
             <div className="mt-16 w-[100%] sm:w-[85%] mx-auto">
 
                 <Slider {...settings}>
-                    {props?.data?.info.map((item, idx) => (
+                    {/* {props?.data?.info.map((item, idx) => ( */}
+                    {props?.data?.map((item, idx) => (
                         <div key={idx}>
-                            <img src={item.image} alt="" className="p-2" />
+                            <img src={item} alt="" className="mx-auto p-2 px-5 md:w-1/2" />
                         </div>
                     ))}
                 </Slider>

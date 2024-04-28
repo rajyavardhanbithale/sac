@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Incharge() {
-    const [speed, setSpeed] = useState(10)
+    const [speed, setSpeed] = useState(8)
     const [data, setData] = useState(null)
 
 
@@ -31,49 +31,39 @@ export default function Incharge() {
     }, [])
 
 
+    console.log(data);
+
     return (
         <>
             <Title title={"Incharges"} />
             <section className="text-gray-600 body-font">
                 <div className="w-[95%] px-4 py-12 mx-auto">
                     {data &&
-                        <div onMouseEnter={() => handleHover(0)} onMouseLeave={() => handleHover(40)} className="-mx-4 -mb-10 text-center">
+                        <div onMouseEnter={() => handleHover(0)} onMouseLeave={() => handleHover(8)} className="-mx-4 -mb-10 text-center">
                             <Marquee velocity={speed}>
                                 {data?.map((item, idx) => (
                                     <div key={idx} className="mb-10 flex">
-                                        {/* <div className="rounded-lg h-32 overflow-hidden">
-                                            <Image
-                                                src={item?.photo}
-                                                width={0}
-                                                height={0}
-                                                sizes="100vw"
-                                                alt="content"
-                                                className="object-cover object-center h-full w-full"
-                                                unoptimized
-                                            />
-                                        </div>
-
-                                        <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-2">{item?.name}</h2>
-                                        <p className="leading-relaxed text-base">{item?.club}</p>
-                                        <p className="leading-relaxed text-base text-gray-700">{item?.role}</p> */}
-
+                                        
                                         {item.name.map((name, idxItem) => (
                                             <div key={idxItem} className="px-4 ">
-                                                <div className="rounded-lg h-32 overflow-hidden">
+                                                <div className="rounded-lg h-40 overflow-hidden">
                                                     <Image
                                                         src={item?.image[idxItem]}
                                                         width={0}
                                                         height={0}
                                                         sizes="100vw"
                                                         alt="content"
-                                                        className="object-cover object-center h-full w-full"
+                                                        className="object-scale-down object-center h-full w-full"
                                                         unoptimized
                                                     />
+
+                                                    {/* <img src={item?.image[idxItem]} className="object-scale-down object-center h-full w-full" /> */}
+                                                   
                                                 </div>
 
                                                 <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-2 capitalize">{name}</h2>
                                                 <p className="leading-relaxed text-base capitalize">{item?.club}</p>
-                                                <p className="leading-relaxed text-base text-gray-700 capitalize">{item?.position[idxItem]}</p>
+                                                {/* <p className="leading-relaxed text-base text-gray-700 capitalize">{item?.position[idxItem]}</p> */}
 
                                             </div>
 
@@ -84,7 +74,11 @@ export default function Incharge() {
                             </Marquee>
 
                         </div>
-                    }
+                    } 
+
+                    {/* {data &&
+                        <img src={data[0]?.image[1]} alt="" />
+                    } */}
                 </div>
             </section>
         </>

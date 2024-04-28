@@ -8,7 +8,7 @@ export default function ClubSidebar(props) {
     return (
         <>
             <div className="lg:p-5 p-6" >
-                <img src="/logo/sac_logo.svg" alt="logo" className="rounded-full drop-shadow-xl w-3/4 mx-auto" />
+                <img src="/assets/sac_logo.png" alt="logo" className="rounded-full drop-shadow-xl w-3/4 mx-auto" />
             </div>
             <div className="flex justify-center p-3">
                 <span className="text-secondary drop-shadow-xl text-xl text-center font-semibold leading-8 tracking-wider">Software Development Club</span>
@@ -26,15 +26,19 @@ export default function ClubSidebar(props) {
 
                 </div>
                 <div className="mt-0 px-2 flex w-full justify-between align-middle">
-                    <span className="p-2 rounded-lg text-white font-bold ">
-                        Join Now
-                    </span>
-                    <span className="p-2 rounded-lg text-white font-bold  my-auto">
+                    <a href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank">
 
-                        <HiOutlineDocumentAdd />
+                        <span className="p-2 rounded-lg text-white font-bold ">
+                            Join Now
+                        </span>
+                    </a>
+                    <a href="https://forms.gle/aafoMXUutj5ynJzB7" target="_black">
+                        <span className="p-2 rounded-lg text-white font-bold  my-auto">
 
-                    </span>
+                            <HiOutlineDocumentAdd />
 
+                        </span>
+                    </a>
                 </div>
 
                 <div className="mt-8">
@@ -61,7 +65,7 @@ export default function ClubSidebar(props) {
 
                         </div>
                     </Collapse>
-                    <Collapse title="Contact">
+                    {/* <Collapse title="Contact">
                         <div className="flex flex-col">
                             {props?.contact?.map((item, idx) => (
                                 <span key={idx}>
@@ -70,7 +74,7 @@ export default function ClubSidebar(props) {
 
                             ))}
                         </div>
-                    </Collapse>
+                    </Collapse> */}
 
                 </div>
 
