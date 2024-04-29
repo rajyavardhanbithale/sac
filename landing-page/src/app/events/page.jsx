@@ -1,42 +1,52 @@
-import Link from "next/link"
+'use client'
 import Title from "../components/Title"
 import Navbar from "../components/Navbar"
 import { IoLocationOutline, IoTicketOutline } from "react-icons/io5"
-import { CiCalendar, CiCalendarDate } from "react-icons/ci"
-import { GoArrowUpRight } from "react-icons/go"
-
-
+import { CiCalendarDate } from "react-icons/ci"
+import { useEffect } from "react"
+import Footer from "../components/Footer"
 
 export default function EventsPage() {
 
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://widget.konfhub.com/widget.js';
+        script.async = true;
+        script.setAttribute('button_id', 'btn_3099734357c7');
+        const container = document.getElementById('konfhub-widget-container');
+        container.appendChild(script);
+
+
+    }, []);
+
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar page ={"event"}></Navbar>
 
             <div className="mt-32">
                 <Title title={"Upcoming Event"}></Title>
             </div>
-            <div class="mt-16 w-[90%] mx-auto">
-                <div className="flex flex-row justify-center items-center gap-16 ">
-                    <div className="w-[50%]">
+            <div className="mt-16 w-[90%] mx-auto">
+                <div className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
+                    <div className="lg:w-[50%] w-[80%]">
 
                         <img src="events/event-sac-inauguration-ceremony.png" alt="" className="rounded-xl hover:scale-105 duration-500" />
                     </div>
 
-                    <div className="w-[50%] flex flex-col gap-2">
+                    <div className="lg:w-[50%] w-[80%] flex flex-col gap-2">
                         <span className="text-3xl">Student Activity Centre Inaugration</span>
                         <a href="https://maps.app.goo.gl/p11a3HVywVhJuWmW9" target="_blank">
 
-                        <span className="text-xl">
-                            <IoLocationOutline className="inline-flex mr-2" />
+                            <span className="text-xl">
+                                <IoLocationOutline className="inline-flex mr-2" />
 
-                            SSIPMT, Raipur
-                        </span>
+                                SSIPMT, Raipur
+                            </span>
                         </a>
 
                         <span className="text-xl">
                             <CiCalendarDate className="inline-flex mr-2" />
-                            Wed, May 1
+                            Wed, May 1, 2024
                         </span>
 
                         <span className="text-xl">
@@ -76,14 +86,14 @@ export default function EventsPage() {
 
                             <span>
                                 <span className="font-semibold">
-                                Don&apos;t miss out! &nbsp;
+                                    Don&apos;t miss out! &nbsp;
                                 </span>
                                 Come celebrate with us and kickstart your journey at the Student Activity Centre. See you there!
                             </span>
 
                         </div>
 
-                        <a href="https://konfhub.com/sac-inaugration" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://konfhub.com/sac-inaugration" target="_blank" rel="noopener noreferrer">
 
                             <div className="mt-4 ext-xl py-2 px-6 bg-primary text-white w-fit rounded-2xl cursor-pointer hover:scale-105 duration-300">
                                 <span>
@@ -91,10 +101,20 @@ export default function EventsPage() {
                                 </span>
                                 <GoArrowUpRight className="inline-flex ml-3" />
                             </div>
-                        </a>
+                        </a> */}
+
+                        {/* <script src="https://widget.konfhub.com/widget.js" button_id="btn_3099734357c7">
+                            </script> */}
+
+                        <div id="konfhub-widget-container" className="my-10 lg:my-5 flex w-full lg:justify-normal md:justify-center ">
+                           
+                        </div>
+
+
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     )
 }

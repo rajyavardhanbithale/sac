@@ -69,7 +69,7 @@ export default function Clubs() {
                 {clubList?.map((item, idx1) => (
                     <>
                         {hover ? (
-                            <div key={idx1} className="animate-jump-in flex flex-col justify-center align-middle text-center" >
+                            <div key={idx1} className="w-[40%] md:w-auto animate-jump-in flex flex-col justify-center align-middle text-center" >
                                 <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto md:w-48 w-36 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>

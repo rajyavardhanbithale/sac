@@ -3,8 +3,8 @@ export default function Hero() {
         <>
             <div className="hero md:h-[27rem]">
                 <img src="assets/hero.webp" alt="image" className="lg:block hidden -z-50" />
-                <img src="assets/hero_md.jpg" alt="image" className="md:block hidden lg:hidden -z-50" />
-                <img src="assets/hero_mobile.jpg" alt="image" className="block md:hidden  object-top object-scale-down w-full h-full lg:hidden -z-50" />
+                <img src="assets/hero_md.webp" alt="image" className="md:block hidden lg:hidden -z-50" />
+                <img src="assets/hero_mobile.webp" alt="image" className="block md:hidden  object-top object-scale-down w-full h-full lg:hidden -z-50" />
 
 
             </div>

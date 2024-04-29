@@ -4,13 +4,14 @@ import Link from "next/link";
 
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-export default function Navbar() {
+export default function Navbar(props) {
     const handleClickScroll = (id) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
 
     return (
         <>
@@ -27,7 +28,7 @@ export default function Navbar() {
                         </a>
 
                         <div className="flex md:order-2 px-3 md:px-3 md:space-x-0 rtl:space-x-reverse">
-                            <a id="join-button" href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank" className="text-white bg-accent hover:bg-opacity-80 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300">
+                            <a id="join-button" href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank" className="text-white bg-accent hover:bg-opacity-80 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm sm:px-4 sm:py-2 px-3 py-1.5 text-center transition duration-300">
                                 <span>Join</span>
                             </a>
 
@@ -37,21 +38,61 @@ export default function Navbar() {
                         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
                                 <li>
-                                    <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
-                                    <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
-                                    <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
-                                    <span className="cursor-pointer text-secondary px-3">
-                                        <Link href={"/events"}>
-                                            Events
-                                        </Link>
-                                    </span>
+                                    {props.page === 'event' ? (
+                                        <span className="cursor-pointer text-secondary px-3">
+                                            <Link href={"/"}>
+                                                Home
+                                            </Link>
+                                        </span>
+                                    ) : (
+                                        <>
+                                            <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
+                                            <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
+                                            <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
+                                            <span className="cursor-pointer text-secondary px-3">
+                                                <Link href={"/events"}>
+                                                    Events
+                                                </Link>
+                                            </span>
+                                        </>
+                                    )
+                                    }
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="items-center justify-between block w-full md:hidden" id="navbar-sticky">
+                            <ul className="flex flex-col p-2 mt-0 font-medium rounded-lg rtl:space-x-reverse ">
+                                <li>
+                                    {props.page === 'event' ? (
+                                        <span className="cursor-pointer text-secondary px-3">
+                                            <Link href={"/"}>
+                                                Home
+                                            </Link>
+                                        </span>
+                                    ) : (
+                                        <>
+                                            <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
+                                            <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
+                                            <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
+                                            <span className="cursor-pointer text-secondary px-3">
+                                                <Link href={"/events"}>
+                                                    Events
+                                                </Link>
+                                            </span>
+                                        </>
+                                    )
+                                    }
+
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
-            </div>
+                
+            </div >
 
 
         </>

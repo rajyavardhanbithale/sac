@@ -57,8 +57,6 @@ export default function Gallery() {
         '/gallery/img2.jpg',
         '/gallery/img3.jpg',
     ]
-
-    console.log(images);
     // useEffect(()=>{
     //     handleFetch()
     // },[])
