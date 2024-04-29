@@ -1,4 +1,5 @@
 import Clubs from "./components/club/Clubs";
+import CoordinatorHead from "./components/CoordinatorHead";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
@@ -25,6 +26,9 @@ export default function Home() {
         <div className="mt-0 mb-0"></div>
         <Incharge></Incharge>
 
+        <div id="coordinator" className=""></div>
+        <div className="mt-0 mb-0"></div>
+        <CoordinatorHead></CoordinatorHead>
 
         <div id="gallery" className=""></div>
 

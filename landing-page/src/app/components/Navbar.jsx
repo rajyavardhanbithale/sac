@@ -27,7 +27,7 @@ export default function Navbar() {
                         </a>
 
                         <div className="flex md:order-2 px-3 md:px-3 md:space-x-0 rtl:space-x-reverse">
-                            <a href="https://forms.gle/aafoMXUutj5ynJzB7" className="text-white bg-accent hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300">
+                            <a id="join-button" href="https://forms.gle/aafoMXUutj5ynJzB7" target="_blank" className="text-white bg-accent hover:bg-opacity-80 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300">
                                 <span>Join</span>
                             </a>
 

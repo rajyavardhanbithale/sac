@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Incharge() {
-    const [speed, setSpeed] = useState(4)
+    const glbSpeed = process.env.NEXT_PUBLIC_MARQUEE_SPEED || 4;
+    const [speed, setSpeed] = useState(glbSpeed)
     const [data, setData] = useState(null)
 
 
@@ -35,11 +36,11 @@ export default function Incharge() {
 
     return (
         <>
-            <Title title={"Incharges"} />
+            <Title title={"Club Faculty Incharge"} />
             <section className="text-gray-600 body-font">
                 <div className="w-[95%] px-4 py-12 mx-auto">
                     {data &&
-                        <div onMouseEnter={() => handleHover(0)} onMouseLeave={() => handleHover(4)} className="-mx-4 -mb-10 text-center">
+                        <div onMouseEnter={() => handleHover(0)} onMouseLeave={() => handleHover(glbSpeed)} className="-mx-4 -mb-10 text-center">
                             <Marquee velocity={speed}>
                                 {data?.map((item, idx) => (
                                     <div key={idx} className="mb-10 flex">
