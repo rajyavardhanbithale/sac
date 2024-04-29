@@ -66,7 +66,7 @@ export default function EventsPage() {
                             </span>
 
                             <span>
-                                We've got some tricks up our sleeves to make this event unforgettable! Expect inspiration, new connections,
+                                We&apos;ve got some tricks up our sleeves to make this event unforgettable! Expect inspiration, new connections,
                                 and a
                                 <span className="font-semibold">
                                     &nbsp;
@@ -76,7 +76,7 @@ export default function EventsPage() {
 
                             <span>
                                 <span className="font-semibold">
-                                Don't miss out! &nbsp;
+                                Don&apos;t miss out! &nbsp;
                                 </span>
                                 Come celebrate with us and kickstart your journey at the Student Activity Centre. See you there!
                             </span>
