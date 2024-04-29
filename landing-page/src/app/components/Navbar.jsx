@@ -44,18 +44,31 @@ export default function Navbar(props) {
                                                 Home
                                             </Link>
                                         </span>
-                                    ) : (
-                                        <>
-                                            <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
-                                            <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
-                                            <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
-                                            <span className="cursor-pointer text-secondary px-3">
-                                                <Link href={"/events"}>
-                                                    Events
-                                                </Link>
-                                            </span>
-                                        </>
-                                    )
+                                    ) :
+                                        props.page === 'club' ? (
+                                            <>
+                                                <span onClick={() => handleClickScroll('about')} className="cursor-pointer text-secondary px-3">About</span>
+                                                <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Faculty Incharge</span>
+                                                <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
+                                                <span className="cursor-pointer text-secondary px-3">
+                                                    <Link href={"/events"}>
+                                                        Events
+                                                    </Link>
+                                                </span>
+                                            </>
+                                        )
+                                            : (
+                                                <>
+                                                    <span onClick={() => handleClickScroll('club')} className="cursor-pointer text-secondary px-3">Clubs</span>
+                                                    <span onClick={() => handleClickScroll('incharge')} className="cursor-pointer text-secondary px-3">Incharge</span>
+                                                    <span onClick={() => handleClickScroll('gallery')} className="cursor-pointer text-secondary px-3">Gallery</span>
+                                                    <span className="cursor-pointer text-secondary px-3">
+                                                        <Link href={"/events"}>
+                                                            Events
+                                                        </Link>
+                                                    </span>
+                                                </>
+                                            )
                                     }
 
                                 </li>
@@ -91,7 +104,7 @@ export default function Navbar(props) {
                     </div>
                 </nav>
 
-                
+
             </div >
 
 

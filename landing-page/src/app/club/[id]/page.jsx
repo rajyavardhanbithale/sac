@@ -47,7 +47,7 @@ export default async function ClubsPage(request) {
         <>
             <div className="flex justify-end">
                 <div className="lg:w-[82%] sm:w-[75%] w-[100%]">
-                    <Navbar></Navbar>
+                    <Navbar page={"club"}></Navbar>
                 </div>
             </div>
 
@@ -75,7 +75,7 @@ export default async function ClubsPage(request) {
                 </div>
                 <div className="hidden sm:block lg:w-[18%] w-[25%]"></div>
                 <div className="lg:w-[82%] sm:w-[75%] w-[95%] p-5 mt-8 mx-auto">
-                    <div className="flex justify-center">
+                    <div className="flex justify-center"  id="gallery">
                         <span className="text-5xl font-semibold text-center">{data?.data?.name}</span>
                     </div>
 
@@ -89,7 +89,7 @@ export default async function ClubsPage(request) {
                         </div>
                     </div>
 
-                    <div className="p-4 sm:p-2 mt-2">
+                    <div className="p-4 sm:p-2 mt-2"  id="about">
                         <Title title={"About"}></Title>
                         <div className="flex lg:flex-row flex-col mt-0 text-justify">
                             <div>
@@ -114,8 +114,8 @@ export default async function ClubsPage(request) {
 
                     </div>
 
-                    <div>
-                        <Title title={"Faculty"}></Title>
+                    <div id="incharge">
+                        <Title title={"Club Faculty Incharge"}></Title>
 
                         <section className="text-gray-600 body-font">
                             <div className="flex flex-wrap px-5 py-24 mx-auto md:gap-16 gap-5">

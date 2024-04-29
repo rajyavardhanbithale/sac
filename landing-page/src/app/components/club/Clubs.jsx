@@ -36,7 +36,7 @@ export default function Clubs() {
     return (
         <>
 
-            <Title title={"Our Clubs"} />
+            <Title  title={"Our Clubs"} />
 
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6 mt-8`}>
                 {clubList?.map((item, idx) => (
