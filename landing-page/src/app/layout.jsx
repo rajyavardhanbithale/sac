@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <link rel="shortcut icon" href="/logo/sac_logo.svg" />
+      <link rel="shortcut icon" href="/assets/sac_logo.png" />
       <body className={pop.className}>{children}</body>
     </html>
   );
