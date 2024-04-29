@@ -32,7 +32,7 @@ export default function Incharge() {
     }, [])
 
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <>

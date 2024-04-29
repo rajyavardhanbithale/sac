@@ -38,13 +38,13 @@ export default function Clubs() {
 
             <Title title={"Our Clubs"} />
 
-            <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6`}>
+            <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6 mt-8`}>
                 {clubList?.map((item, idx) => (
                     <>
                         {!hover &&
                             <div key={idx} className="flex flex-col justify-center align-middle text-center" >
                                 <img onMouseEnter={() => handleHover(idx)} src={item.logo} alt="" className="z-0 md:w-56 w-3/4 mx-auto rounded-full hover:brightness-75 transition duration-500" />
-                                <span className="text-center mt-4">{item.name}</span>
+                                <span className="text-center mt-4 font-semibold">{item.name}</span>
                             </div>
                         }
                     </>
