@@ -70,7 +70,7 @@ export default function Clubs() {
                     <>
                         {hover ? (
                             <div key={idx1} className="w-[40%] md:w-auto animate-jump-in flex flex-col justify-center align-middle text-center" >
-                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto md:w-48 w-36 rounded-full hover:brightness-90 hover:scale-[1.02] transition duration-500 " />
+                                <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto md:w-48 w-36 rounded-full hover:brightness-90 hover:scale-[1.05] transition duration-300 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>
                         ) : (
@@ -81,15 +81,17 @@ export default function Clubs() {
                 ))}
             </div>
 
-            {hover &&
-                <div className="flex w-full justify-center py-16 ">
-                    <div className="flex mt-1 mr-2 text-gray-500 text-base">
-                        <PiLightbulbFilament></PiLightbulbFilament>
-                    </div>
-                    <span className="hidden sm:block text-gray-500 text-base">Hover to know more about club</span>
-                    <span className="sm:hidden block text-gray-500 text-base">Click to know more about club</span>
+
+
+            
+            <div className="flex w-full justify-center py-16 ">
+                <div className="flex mt-1 mr-2 text-gray-500 text-base">
+                    <PiLightbulbFilament></PiLightbulbFilament>
                 </div>
-            }
+                <span className="hidden sm:block text-gray-500 text-base">Hover to know more about club</span>
+                <span className="sm:hidden block text-gray-500 text-base">Click to know more about club</span>
+            </div>
+           
 
         </>
     )

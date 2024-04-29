@@ -30,7 +30,7 @@ export default function EventsPage() {
                 <div className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
                     <div className="lg:w-[50%] w-[80%]">
 
-                        <img src="events/event-sac-inauguration-ceremony.png" alt="" className="rounded-xl hover:scale-105 duration-500" />
+                        <img src="events/event-sac-inauguration-ceremony.webp" alt="" className="shadow-2xl rounded-xl hover:scale-105 duration-500" />
                     </div>
 
                     <div className="lg:w-[50%] w-[80%] flex flex-col gap-2">
