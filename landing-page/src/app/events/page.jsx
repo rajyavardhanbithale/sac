@@ -21,19 +21,19 @@ export default function EventsPage() {
 
     return (
         <>
-            <Navbar page ={"event"}></Navbar>
+            <Navbar page={"event"}></Navbar>
 
             <div className="mt-32">
                 <Title title={"Upcoming Event"}></Title>
             </div>
             <div className="mt-16 w-[90%] mx-auto">
                 <div className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
-                    <div className="lg:w-[50%] w-[80%]">
+                    <div className="lg:w-[50%] w-[100%]">
 
                         <img src="events/event-sac-inauguration-ceremony.webp" alt="" className="shadow-2xl rounded-xl hover:scale-105 duration-500" />
                     </div>
 
-                    <div className="lg:w-[50%] w-[80%] flex flex-col gap-2">
+                    <div className="lg:w-[50%] w-[95%] flex flex-col gap-2">
                         <span className="text-3xl">Student Activity Centre Inaugration</span>
                         <a href="https://maps.app.goo.gl/p11a3HVywVhJuWmW9" target="_blank">
 
@@ -107,7 +107,7 @@ export default function EventsPage() {
                             </script> */}
 
                         <div id="konfhub-widget-container" className="my-10 lg:my-5 flex w-full lg:justify-normal md:justify-center ">
-                           
+
                         </div>
 
 
@@ -115,9 +115,12 @@ export default function EventsPage() {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 w-full">
 
-            <Footer></Footer>
+            <div className="flex justify-end">
+                <div className="lg:w-[82%] sm:w-[75%] w-[100%]">
+
+                    <Footer></Footer>
+                </div>
             </div>
         </>
     )

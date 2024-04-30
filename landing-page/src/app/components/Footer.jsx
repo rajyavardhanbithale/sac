@@ -5,11 +5,12 @@ function Footer() {
         <>
             <footer className="bg-primary text-white">
                 <div className="container mx-auto py-4">
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-col sm:flex-row justify-between align-middle items-center  text-center gap-2">
                         <div className="w-full md:w-1/2">
                             <p className="text-sm">&copy; 2024 Student Activity Center. All Rights Reserved.</p>
                         </div>
-                        <div className="w-full md:w-1/2 flex justify-end items-center">
+
+                        <div className="w-full md:w-1/2 flex flex-col sm:flex-row justify-between align-middle items-center text-center  gap-2">
                             <div className="mr-4">
                                 <p className="text-sm">Developed by SAC</p>
                                 {/* <p className="text-sm">Developed by [Holder]</p> */}

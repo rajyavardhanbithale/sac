@@ -32,12 +32,18 @@ export default function Clubs() {
         handleFetch();
     }, []);
 
+    const handleClickScroll = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <>
 
+            <div id="club-info-clbi"></div>
             <Title  title={"Our Clubs"} />
-
             <div className={`${hover ? 'p-0' : 'p-12'} w-full flex flex-wrap justify-center gap-6 mt-8`}>
                 {clubList?.map((item, idx) => (
                     <>
@@ -54,6 +60,7 @@ export default function Clubs() {
             {(hover && clubList) &&
                 <>
                     {/* <Stats></Stats> */}
+                    
                     <ClubInfo image={clubList[index]?.logo}
                         title={clubList[index]?.name}
                         mission={clubList[index]?.mission}
@@ -69,7 +76,7 @@ export default function Clubs() {
                 {clubList?.map((item, idx1) => (
                     <>
                         {hover ? (
-                            <div key={idx1} className="w-[40%] md:w-auto animate-jump-in flex flex-col justify-center align-middle text-center" >
+                            <div key={idx1}  onClick={()=> handleClickScroll("club-info-clbi")} className="w-[40%] md:w-auto animate-jump-in flex flex-col justify-center align-middle text-center" >
                                 <img onMouseEnter={() => handleHover(idx1)} src={item.logo} alt="" className="mx-auto md:w-48 w-36 rounded-full hover:brightness-90 hover:scale-[1.05] transition duration-300 " />
                                 <span className="text-center mt-0 font-semibold">{item.name}</span>
                             </div>

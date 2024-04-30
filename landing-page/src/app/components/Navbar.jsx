@@ -75,8 +75,8 @@ export default function Navbar(props) {
                             </ul>
                         </div>
 
-                        <div className="items-center justify-between block w-full md:hidden" id="navbar-sticky">
-                            <ul className="flex flex-col p-2 mt-0 font-medium rounded-lg rtl:space-x-reverse ">
+                        <div className="items-center justify-between align-middle text-center block w-full md:hidden" id="navbar-sticky">
+                            <ul className="flex flex-col p-2 mt-0 font-medium rounded-lg  rtl:space-x-reverse ">
                                 <li>
                                     {props.page === 'event' ? (
                                         <span className="cursor-pointer text-secondary px-3">
