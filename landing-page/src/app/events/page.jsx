@@ -34,7 +34,7 @@ export default function EventsPage() {
                     </div>
 
                     <div className="lg:w-[50%] w-[95%] flex flex-col gap-2">
-                        <span className="text-3xl">Student Activity Centre Inaugration</span>
+                        <span className="text-3xl">Student Activity Centre Inauguration</span>
                         <a href="https://maps.app.goo.gl/p11a3HVywVhJuWmW9" target="_blank">
 
                             <span className="text-xl">
@@ -116,8 +116,8 @@ export default function EventsPage() {
             </div>
 
 
-            <div className="flex justify-end">
-                <div className="lg:w-[82%] sm:w-[75%] w-[100%]">
+            <div className="flex justify-end w-full lg:fixed lg:bottom-0">
+                <div className="w-[100%]">
 
                     <Footer></Footer>
                 </div>
