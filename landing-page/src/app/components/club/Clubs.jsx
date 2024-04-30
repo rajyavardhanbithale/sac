@@ -95,8 +95,8 @@ export default function Clubs() {
                 <div className="flex mt-1 mr-2 text-gray-500 text-base">
                     <PiLightbulbFilament></PiLightbulbFilament>
                 </div>
-                <span className="hidden sm:block text-gray-500 text-base">Hover to know more about club</span>
-                <span className="sm:hidden block text-gray-500 text-base">Click to know more about club</span>
+                <span className="hidden sm:block text-gray-500 text-base">Hover club logo to know more about club</span>
+                <span className="sm:hidden block text-gray-500 text-base">Click club logo to know more about club</span>
             </div>
            
 
