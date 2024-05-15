@@ -6,7 +6,7 @@ export default function COC() {
         <>
             {/* <Navbar /> */}
 
-            <div class="mt-36 flex flex-col justify-center items-center">
+            <div class="mt-20 flex flex-col justify-center items-center">
                 <div class="w-3/4">
                     <div class="mx-auto flex flex-col  text-2xl text-center">
 
