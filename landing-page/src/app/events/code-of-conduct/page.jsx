@@ -22,16 +22,16 @@ export default function COC() {
                                 Code of Conduct
                             </span>
                             <span>
-                                The Student Activity Centre is committed to creating an 
-                                inclusive and welcoming environment for all participants 
-                                at our events. We expect everyone in attendance to adhere 
+                                The Student Activity Centre is committed to creating an
+                                inclusive and welcoming environment for all participants
+                                at our events. We expect everyone in attendance to adhere
                                 to the following code of conduct.
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div className="w-[70%] my-20 flex flex-col gap-8">
+                <div className="w-[70%] mt-10 flex flex-col gap-8">
                     <div className="flex flex-col gap-1">
                         <span className="text-3xl font-semibold">Respectful Behavior</span>
                         <span className="text-xl">Treat all participants with respect,
@@ -81,6 +81,16 @@ export default function COC() {
                         </span>
                     </div>
 
+
+                </div>
+
+                <div class="w-3/4  my-20 ">
+                    <div class="mx-auto flex flex-col  text-2xl text-center">
+
+                        <span>
+                        By attending this event, you agree to comply with this code of conduct. Let's work together to ensure a positive and inclusive experience for everyone.
+                        </span>
+                    </div>
 
                 </div>
             </div>
