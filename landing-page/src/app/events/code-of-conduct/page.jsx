@@ -1,11 +1,12 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "@/app/components/Navbar";
+
 
 export default function COC() {
     return (
         <>
-            {/* <Navbar /> */}
+            <Navbar />
 
-            <div class="mt-10 flex flex-col justify-center items-center">
+            <div class="mt-36 flex flex-col justify-center items-center">
                 <div class="w-3/4">
                     <div class="mx-auto flex flex-col  text-2xl text-center">
 
@@ -13,7 +14,7 @@ export default function COC() {
                             Student Activity Center
                         </span>
 
-                        <img src="assets/sac_logo.png" alt="sac logo" className="mx-auto my-5 w-[10%]" />
+                        <img src="/assets/sac_logo.png" alt="sac logo" className="mx-auto my-5 w-[10%]" />
 
                         <div className="flex flex-col gap-5 mt-5">
 
@@ -48,7 +49,7 @@ export default function COC() {
                         <span className="text-xl">
                             Maintain a professional demeanor throughout the event.
                             Dress appropriately for the event setting.
-                            Avoid disruptive behavior that could interfere with others' ability to participate.
+                            Avoid disruptive behavior that could interfere with others&apos; ability to participate.
                         </span>
                     </div>
 
@@ -76,7 +77,7 @@ export default function COC() {
                         <span className="text-xl">
                             Participants who violate this code of conduct may be asked to leave the event, and further disciplinary action may be taken.
                             The Student Activity Centre reserves the right to address any instances of unacceptable behavior not explicitly covered by this code of conduct.
-                            By attending this event, you agree to comply with this code of conduct. Let's work together to ensure a positive and inclusive experience for everyone.
+                            By attending this event, you agree to comply with this code of conduct. Let&apos;s work together to ensure a positive and inclusive experience for everyone.
                         </span>
                     </div>
 
