@@ -4,7 +4,7 @@ import Navbar from "@/app/components/Navbar";
 export default function COC() {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <div class="mt-36 flex flex-col justify-center items-center">
                 <div class="w-3/4">
