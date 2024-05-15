@@ -88,7 +88,7 @@ export default function COC() {
                     <div class="mx-auto flex flex-col  text-2xl text-center">
 
                         <span>
-                        By attending this event, you agree to comply with this code of conduct. Let's work together to ensure a positive and inclusive experience for everyone.
+                        By attending this event, you agree to comply with this code of conduct. Let&apos;s work together to ensure a positive and inclusive experience for everyone.
                         </span>
                     </div>
 
