@@ -58,7 +58,7 @@ export default function EventsPage() {
 
             <div className="mt-16 w-[90%] mx-auto">
                 {events && events?.map((data, idx) => (
-                    <div className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
+                    <div key={idx} className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
                         <div className="lg:w-[50%] w-[100%]">
                             {/* <img src="events/event-sac-inauguration-ceremony.webp" alt="" className="shadow-2xl rounded-xl hover:scale-105 duration-500" /> */}
                             <img src={`https://lh3.googleusercontent.com/d/${data.imageID}=w1000?authuser=1/view`} alt="" className="shadow-2xl rounded-xl hover:scale-105 duration-500" />
