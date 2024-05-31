@@ -15,6 +15,7 @@ export default function EventsPage() {
     useEffect(() => {
         const fetchAPI = async () => {
             const response = await axios.get('/api/db/events')
+            
             if (response.status === 200) {
                 setEvents(response.data.data)
             }
