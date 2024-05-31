@@ -1,20 +1,17 @@
 export const dynamic = "force-dynamic";
-
 import { NextResponse } from "next/server";
-
 import { MongoClient, ObjectId } from 'mongodb';
-
 
 const client = new MongoClient(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-await client.connect();
-const database = client.db('SAC');
-const collection = database.collection('events');
-
 export async function POST(request) {
+    await client.connect();
+    const database = client.db('SAC');
+    const collection = database.collection('events');
+
 
     const method = request.nextUrl.searchParams.get("method")
 
@@ -48,7 +45,7 @@ export async function POST(request) {
     if (method === 'delete') {
         const id = ObjectId.createFromHexString(body.objectID)
 
-        
+
         const filter = { _id: id };
         const result = await collection.deleteOne(filter);
         console.log(result);
