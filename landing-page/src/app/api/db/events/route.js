@@ -12,7 +12,7 @@ const collection = database.collection('events');
 
 export async function GET(req, res) {
    
-    const events = await collection.find().toArray()
+    const events = (await collection.find().toArray()).reverse()
 
     return Response.json({ data: events})
 

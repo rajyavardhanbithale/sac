@@ -13,6 +13,9 @@ const database = client.db('SAC');
 const collection = database.collection('events');
 
 export async function POST(request) {
+
+    const method = request.nextUrl.searchParams.get("method")
+
     const body = await request.json();
     const update = {
         title: body.title,
@@ -23,11 +26,31 @@ export async function POST(request) {
         imageID: body.imageID
     }
 
-    const id = ObjectId.createFromHexString(body.objectID)
-    const filter = { _id: id };
-    const updateF = { $set: update };
-    const result = await collection.updateOne(filter, updateF, { upsert: true });
-    console.log(result);
+    if (method === 'update') {
+        const id = ObjectId.createFromHexString(body.objectID)
+        const filter = { _id: id };
+        const updateF = { $set: update };
+        const result = await collection.updateOne(filter, updateF, { upsert: true });
+        console.log(result);
 
-    return NextResponse.json({ response: result.modifiedCount },{status:200});
+        return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
+    }
+
+    if (method === 'create') {
+        const result = await collection.insertOne(update);
+        console.log(result);
+
+        return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
+    }
+
+    if (method === 'delete') {
+        const id = ObjectId.createFromHexString(body.objectID)
+
+        
+        const filter = { _id: id };
+        const result = await collection.deleteOne(filter);
+        console.log(result);
+
+        return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
+    }
 }

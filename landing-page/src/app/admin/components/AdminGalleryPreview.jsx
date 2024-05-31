@@ -41,9 +41,10 @@ export default function AdminGalleryPreview(props) {
                         onMouseLeave={handleMouseLeave}
                     >
                         <img
-                            src={`https://lh3.googleusercontent.com/d/${id}=w1000?authuser=1/view`}
+                            src={`https://lh3.googleusercontent.com/d/${id}=w1000`}
                             className="object-cover w-full h-full rounded-lg shadow-lg"
                             alt=""
+                            referrerPolicy="no-referrer"
                         />
                         {hoveredIdx === idx && (
                             <div className="absolute inset-0 flex items-center justify-center">

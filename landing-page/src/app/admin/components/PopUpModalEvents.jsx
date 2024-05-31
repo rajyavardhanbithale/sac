@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { IoTrashBin } from "react-icons/io5";
 
 export default function PopUpModalEvent(props) {
     const [success, setSuccess] = useState(null);
     const [error, setError] = useState(null);
+    const [deleteButton, setDeleteButton] = useState(false)
 
     useEffect(() => {
         if (props?.isOpen) {
@@ -16,38 +18,36 @@ export default function PopUpModalEvent(props) {
     const [formData, setFormData] = useState({
         objectID: props?.data?._id,
         title: props?.data?.title || '',
-        description: props?.data?.description || [],
+        description: props?.data?.description || '',
         location: props?.data?.location || '',
-        date: props?.data?.date || '',
+        date: props?.data?.date || Date.now() / 1000,
         price: props?.data?.price || '',
         imageID: props?.data?.imageID || '',
     });
 
-    const handleChange = (e, index) => {
+    const dateToEpoch = (dateString) => {
+        const [year, month, day] = dateString.split('-').map(Number);
+        const date = new Date(year, month - 1, day);
+        return Math.floor(date.getTime() / 1000);
+    };
+
+
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log('Name:', name);
-        console.log('Value:', value);
-        
-        // Handle date field separately
         if (name === 'date') {
-            const dateValue = e.target.value;
-            console.log('Date Value:', dateValue);
-            setFormData({
-                ...formData,
-                [name]: dateValue, // Update date directly
-            });
+            const epochValue = dateToEpoch(value);
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: epochValue
+            }));
         } else {
-            // For other fields
-            const updatedDescriptions = [...formData.description];
-            updatedDescriptions[index] = value;
-    
-            setFormData({
-                ...formData,
-                [name]: name === 'description' ? updatedDescriptions : value,
-            });
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value
+            }));
         }
     };
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,15 +57,10 @@ export default function PopUpModalEvent(props) {
             return;
         }
 
-        const dateEpoch = Math.floor(new Date(formData.date).getTime() / 1000);
-
-        const updatedFormData = {
-            ...formData,
-            date: dateEpoch,
-        };
-
         try {
-            const response = await axios.post('/api/db/events/update', updatedFormData);
+            const method = props?.method || "update"
+            const response = await axios.post(`/api/db/events/update?method=${method}`, formData);
+            console.log(response)
 
             if (response.status === 200) {
                 setSuccess("Event Modified Successfully");
@@ -76,12 +71,15 @@ export default function PopUpModalEvent(props) {
         } catch (error) {
             setError('Error modifying event. Please try again later.');
         }
+
+
     };
+
 
     const validateForm = () => {
         return (
             formData.title &&
-            formData.description.every(desc => desc.trim()) &&
+            formData.description &&
             formData.location &&
             formData.date &&
             formData.price &&
@@ -97,9 +95,34 @@ export default function PopUpModalEvent(props) {
         return `${year}-${month}-${day}`;
     };
 
+    const handleDelete = (e) => {
+        const req = "yes, i want to delete";
+        if (e.target.value === req) {
+            setDeleteButton(true);
+        } else {
+            setDeleteButton(false);
+        }
+    };
+
+    const handleDeleteConf = async () => {
+        try {
+            const response = await axios.post(`/api/db/events/update?method=delete`, formData);
+            console.log(response)
+            if (response.status === 200) {
+                setSuccess("Event Modified Successfully");
+                window.location.reload();
+            } else {
+                setError('Unable to Modify Event');
+            }
+        } catch (error) {
+            setError('Error modifying event. Please try again later.');
+        }
+    }
+
+
     return (
         <>
-            {props?.isOpen && (
+            {(props?.isOpen && props?.popupMethod === 'update') && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto h-[100vh]">
                     <div
                         className="absolute inset-0 bg-black opacity-50"
@@ -131,24 +154,20 @@ export default function PopUpModalEvent(props) {
                                     Description
                                 </span>
                                 <span>
-                                    To make the text bold, use &lt;strong&gt;Text&lt;/strong&gt; tag
+                                    To make the text bold, use &lt;strong&gt;Text&lt;/strong&gt; tag, To break line use &lt;br/&gt;
                                 </span>
-                                {formData.description.map((desc, index) => (
-                                    <div key={index} className="">
-                                        <label htmlFor={`description_${index}`}
-                                            className="block font-semibold">
-                                            {`Description ${index + 1}`}
-                                        </label>
-                                        <textarea
-                                            id={`description_${index}`}
-                                            name={`description_${index}`}
-                                            className="border border-gray-300 rounded-md px-4 py-2 h-16 w-full focus:outline-none focus:border-gray-500"
-                                            value={desc}
-                                            onChange={(e) => handleChange(e, index)}
-                                            required
-                                        />
-                                    </div>
-                                ))}
+                                <div>
+                                    <label htmlFor="description" className="block font-semibold">Description</label>
+                                    <textarea
+                                        id="description"
+                                        name="description"
+                                        className="border border-gray-300 rounded-md px-4 py-2 h-16 w-full focus:outline-none focus:border-gray-500"
+                                        value={formData.description}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+
                             </div>
                             <div>
                                 <label htmlFor="location" className="block font-semibold">Location</label>
@@ -214,6 +233,41 @@ export default function PopUpModalEvent(props) {
                                 <button type="submit" className="items-center bg-gray-500 w-[30%] hover:bg-gray-600 duration-1000 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:bg-gray-600">Submit</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            )}
+
+            {(props?.isOpen && props?.popupMethod === 'delete') && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto h-[100vh]">
+                    <div
+                        className="absolute inset-0 bg-black opacity-50"
+                        onClick={props?.closeModal}>
+
+                    </div>
+
+                    <div className={`bg-white p-8 rounded-md w-1/2 z-10 transition-transform  overflow-y-auto duration-300 ease-in-out transform scale-100 ${props.isOpen ? 'animate-jump-in' : 'animate-jump-out'}`}>
+                        <h2 className="text-2xl mb-4 font-bold">Event Delete Request</h2>
+                        <div className="flex flex-col gap-2">
+                            <span className="font-semibold">To delete the requested event type the below sentence</span>
+                            <span className="text-red-500 font-medium">yes, i want to delete</span>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                className="border border-gray-300 bg-gray-200 rounded-md px-4 py-1 w-full focus:outline-none focus:border-gray-500"
+                                onChange={e => handleDelete(e)}
+                                required
+                            />
+                        </div>
+
+                        {deleteButton &&
+                            <button onClick={handleDeleteConf} className="mt-4 flex bg-red-600 px-3 py-2 font-semibold text-white rounded-xl">
+                                Delete
+                                <span className="mt-1 ml-1">
+                                    <IoTrashBin />
+                                </span>
+                            </button>
+                        }
                     </div>
                 </div>
             )}

@@ -8,6 +8,7 @@ import PopUpModalEvent from "./PopUpModalEvents";
 
 export default function AdminEventCard({ event }) {
     const [isModalOpen, setModalOpen] = useState(false);
+    const [popupMethod, setPopupMethod] = useState(null)
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
 
@@ -36,7 +37,8 @@ export default function AdminEventCard({ event }) {
                         <img
                             className="h-full object-cover md:w-1/2 lg:w-full"
                             alt="hero"
-                            src={`https://lh3.googleusercontent.com/d/${event.imageID}=w1000?authuser=1/view`}
+                            src={`https://lh3.googleusercontent.com/d/${event.imageID}=w1000`}
+                            referrerPolicy="no-referrer"
                         />
                     </div>
                     <div className="p-8 w-full">
@@ -51,15 +53,13 @@ export default function AdminEventCard({ event }) {
                                 Description
                             </span>
                             <div className="flex flex-col gap-2">
-                                {event.description.map((desc, idx) => (
-                                    <span
-                                        key={idx}
-                                        dangerouslySetInnerHTML={{ __html: desc }}
-                                        className=""
-                                    >
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: event?.description}}
+                                    className=""
+                                >
 
-                                    </span>
-                                ))}
+                                </div>
+
                             </div>
 
                             <span className="mt-3 text-gray-900 text-xl font-semibold">
@@ -87,14 +87,14 @@ export default function AdminEventCard({ event }) {
                         </div>
 
                         <div className="flex md:justify-center lg:justify-end gap-1 mt-8">
-                            <button onClick={handleModal} className="flex bg-red-600 px-3 py-2 font-semibold text-white rounded-xl">
+                            <button onClick={() => { handleModal(); setPopupMethod('delete') }} className="flex bg-red-600 px-3 py-2 font-semibold text-white rounded-xl">
                                 Delete
                                 <span className="mt-1 ml-1">
                                     <IoTrashBin />
                                 </span>
                             </button>
 
-                            <button onClick={handleModal} className="flex bg-green-600 px-3 py-2 font-semibold text-white rounded-xl">
+                            <button onClick={() => { handleModal(); setPopupMethod('update') }} className="flex bg-green-600 px-3 py-2 font-semibold text-white rounded-xl">
                                 EDIT
                                 <span className="mt-1 ml-1">
                                     <TbEdit />
@@ -102,7 +102,12 @@ export default function AdminEventCard({ event }) {
                             </button>
 
                         </div>
-                        <PopUpModalEvent isOpen={isModalOpen} closeModal={closeModal} data={event} />
+                        <PopUpModalEvent
+                            isOpen={isModalOpen}
+                            closeModal={closeModal}
+                            data={event}
+                            popupMethod={popupMethod}
+                        />
                     </div>
                 </div>
             </div>

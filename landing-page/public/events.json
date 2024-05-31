@@ -1,13 +1,9 @@
+
 {
     "title": "Student Activity Centre Inauguration",
     "location":"SSIPMT, Raipur",
     "date": 1714542986,
     "price": "free",
-    "description":[
-        "Join us for the grand inauguration of the <strong>Student Activity Centre (SAC)</strong> - the heart of campus innovation! Presented by the Institute Innovation Council, the SAC is all about personal growth, skill development, and an unforgettable campus experience.",
-        "Get ready for an interactive keynote by tech pro, <strong>Pulkit Pagare</strong>, as he shares invaluable insights on mastering coding interviews at top MNCs.",
-        "We've got some tricks up our sleeves to make this event unforgettable! Expect inspiration, new connections, and a  <strong>secret surprise!</strong>",
-        "<strong>Don't miss out!</strong>  Come celebrate with us and kickstart your journey at the Student Activity Centre. See you there!"
-    ],
+    "description":"Join us for the grand inauguration of the <strong>Student Activity Centre (SAC)</strong> - the heart of campus innovation! Presented by the Institute Innovation Council, the SAC is all about personal growth, skill development, and an unforgettable campus experience., <br/> Get ready for an interactive keynote by tech pro, <strong>Pulkit Pagare</strong>, as he shares invaluable insights on mastering coding interviews at top MNCs. <br/> We've got some tricks up our sleeves to make this event unforgettable! Expect inspiration, new connections, and a  <strong>secret surprise!</strong> <br/> <strong>Don't miss out!</strong>  Come celebrate with us and kickstart your journey at the Student Activity Centre. See you there!",
     "imageID":"11wbQi2g6IcdYjMxE5aNRpNuvhvTgd1rX"
 }

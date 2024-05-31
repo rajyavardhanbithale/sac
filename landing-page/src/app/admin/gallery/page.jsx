@@ -8,7 +8,7 @@ export default function Upload() {
     const [url, setUrl] = useState('');
     const [key, setKey] = useState(null);
     const [id, setId] = useState(null);
-    const [error,setError] = useState(null);
+    const [error, setError] = useState(null);
     const [auth, setAuth] = useState(true); //False
     const [images, setImages] = useState(null);
 
@@ -97,7 +97,12 @@ export default function Upload() {
 
                     <div className="mt-4">
                         {id &&
-                            <img src={`https://lh3.googleusercontent.com/d/${id}=w1000?authuser=1/view`} alt="" />
+                            <img
+                                src={`https://lh3.googleusercontent.com/d/${id}=w1000`}
+                                alt=""
+                                referrerPolicy="no-referrer"
+                            />
+
                         }
                     </div>
                 </div>
