@@ -6,9 +6,10 @@ import { CiCalendarDate } from "react-icons/ci"
 import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import axios from "axios"
+import { unstable_noStore } from "next/cache"
 
 export default function EventsPage() {
-
+    unstable_noStore()
     const [events, setEvents] = useState([])
 
     useEffect(() => {

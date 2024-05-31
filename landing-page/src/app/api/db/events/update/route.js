@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from 'mongodb';
+import { unstable_noStore } from 'next/cache';
 
 const client = new MongoClient(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -8,6 +9,7 @@ const client = new MongoClient(process.env.MONGODB_URI, {
 });
 
 export async function POST(request) {
+    unstable_noStore()
     await client.connect();
     const database = client.db('SAC');
     const collection = database.collection('events');
