@@ -23,6 +23,7 @@ export default function PopUpModalEvent(props) {
         date: props?.data?.date || Date.now() / 1000,
         price: props?.data?.price || '',
         imageID: props?.data?.imageID || '',
+        register: props?.data?.register || ''
     });
 
     const dateToEpoch = (dateString) => {
@@ -60,7 +61,7 @@ export default function PopUpModalEvent(props) {
         try {
             const method = props?.method || "update"
             const response = await axios.post(`/api/db/events/update?method=${method}`, formData);
-            console.log(response)
+  
 
             if (response.status === 200) {
                 setSuccess("Event Modified Successfully");
@@ -107,7 +108,7 @@ export default function PopUpModalEvent(props) {
     const handleDeleteConf = async () => {
         try {
             const response = await axios.post(`/api/db/events/update?method=delete`, formData);
-            console.log(response)
+    
             if (response.status === 200) {
                 setSuccess("Event Modified Successfully");
                 window.location.reload();
@@ -190,6 +191,10 @@ export default function PopUpModalEvent(props) {
                             <div>
                                 <label htmlFor="price" className="block font-semibold">Price</label>
                                 <input type="text" id="price" name="price" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.price} onChange={handleChange} required />
+                            </div>                           
+                             <div>
+                                <label htmlFor="register" className="block font-semibold">Registration Link</label>
+                                <input type="text" id="register" name="register" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-gray-500" value={formData.register} onChange={handleChange} required />
                             </div>
 
                             <div>

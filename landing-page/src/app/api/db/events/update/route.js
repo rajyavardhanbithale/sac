@@ -24,7 +24,8 @@ export async function POST(request) {
         date: body.date,
         price: body.price,
         description: body.description,
-        imageID: body.imageID
+        imageID: body.imageID,
+        register: body.register
     }
 
     if (method === 'update') {
@@ -32,14 +33,14 @@ export async function POST(request) {
         const filter = { _id: id };
         const updateF = { $set: update };
         const result = await collection.updateOne(filter, updateF, { upsert: true });
-        console.log(result);
+      
 
         return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
     }
 
     if (method === 'create') {
         const result = await collection.insertOne(update);
-        console.log(result);
+
 
         return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
     }
@@ -50,7 +51,7 @@ export async function POST(request) {
 
         const filter = { _id: id };
         const result = await collection.deleteOne(filter);
-        console.log(result);
+
 
         return NextResponse.json({ response: result.modifiedCount }, { status: 200 });
     }

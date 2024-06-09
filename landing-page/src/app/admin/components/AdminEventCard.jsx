@@ -54,7 +54,7 @@ export default function AdminEventCard({ event }) {
                             </span>
                             <div className="flex flex-col gap-2">
                                 <div
-                                    dangerouslySetInnerHTML={{ __html: event?.description}}
+                                    dangerouslySetInnerHTML={{ __html: event?.description }}
                                     className=""
                                 >
 
@@ -82,6 +82,12 @@ export default function AdminEventCard({ event }) {
                             </span>
                             <span className="mt-2 text-gray-700">
                                 {event.price}
+                            </span>
+                            <span className="mt-3 text-gray-900 text-xl font-semibold">
+                                Registration Link
+                            </span>
+                            <span className="mt-2 text-gray-700">
+                                {event.register}
                             </span>
 
                         </div>

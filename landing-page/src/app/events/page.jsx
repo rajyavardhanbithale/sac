@@ -15,7 +15,7 @@ export default function EventsPage() {
     useEffect(() => {
         const fetchAPI = async () => {
             const response = await axios.get('/api/db/events')
-            
+
             if (response.status === 200) {
                 setEvents(response.data.data)
             }
@@ -55,17 +55,17 @@ export default function EventsPage() {
                 <Title title={"Events"}></Title>
             </div>
 
-            <div className="mt-16 w-[90%] mx-auto">
+            <div className="mt-16 w-[90%] mx-auto mb-5">
                 <div>
                     <h2 className="text-3xl mb-4 font-semibold">Upcoming Events</h2>
                     {upcomingEvents.length > 0 ? (
                         upcomingEvents.map((data, idx) => (
-                            <div key={idx} className="flex lg:flex-row flex-col justify-center items-center gap-16 ">
+                            <div key={idx} className={`flex ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} flex-col justify-center items-center gap-16 my-32`}>
                                 <div className="lg:w-[50%] w-[100%]">
                                     <img
                                         src={`https://lh3.googleusercontent.com/d/${data.imageID}=w1000`}
                                         alt=""
-                                        className="shadow-2xl rounded-xl hover:scale-105 duration-500"
+                                        className="shadow-xl rounded-xl hover:scale-[1.02] duration-500"
                                         referrerPolicy="no-referrer"
                                     />
                                 </div>
@@ -83,20 +83,23 @@ export default function EventsPage() {
                                         {epochDate(data.date)}
                                     </span>
 
-                                    <span className="text-xl">
+                                    <span className="text-xl capitalize">
                                         <IoTicketOutline className="inline-flex mr-2" />
                                         {data.price}
                                     </span>
 
                                     <div className="flex flex-col gap-3 text-base">
-
                                         <div
-                                           
                                             dangerouslySetInnerHTML={{ __html: data.description }}
                                             className="text-xl"
                                         />
-
                                     </div>
+
+                                    <a href={data?.register} target="_blank">
+                                        <button className="flex uppercase bg-primary cursor-pointer cur mt-5 w-fit py-2 px-10 text-white font-semibold rounded-2xl shadow-lg text-xl hover:brightness-105 hover:shadow-xl duration-300 hover:scale-[1.03]">
+                                            register
+                                        </button>
+                                    </a>
 
                                     <div id="konfhub-widget-container" className="my-10 lg:my-5 flex w-full lg:justify-normal md:justify-center "></div>
                                 </div>
@@ -114,12 +117,12 @@ export default function EventsPage() {
                     <h2 className="text-3xl mb-4 font-semibold">Past Events</h2>
                     {pastEvents.length > 0 ? (
                         pastEvents.map((data, idx) => (
-                            <div key={idx} className="flex lg:flex-row flex-col justify-center items-center gap-16  my-4">
+                            <div key={idx} className={`flex ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} flex-col justify-center items-center gap-16 my-32`}>
                                 <div className="lg:w-[50%] w-[100%]">
                                     <img
                                         src={`https://lh3.googleusercontent.com/d/${data.imageID}=w1000`}
                                         alt=""
-                                        className="shadow-2xl rounded-xl hover:scale-105 duration-500"
+                                        className="shadow-xl rounded-xl hover:scale-[1.02] duration-500"
                                         referrerPolicy="no-referrer"
                                     />
                                 </div>
@@ -137,18 +140,21 @@ export default function EventsPage() {
                                         {epochDate(data.date)}
                                     </span>
 
-                                    <span className="text-xl">
+                                    <span className="text-xl capitalize">
                                         <IoTicketOutline className="inline-flex mr-2" />
                                         {data.price}
                                     </span>
 
                                     <div className="flex flex-col gap-3 text-base">
-                                    <div
-                                           
-                                           dangerouslySetInnerHTML={{ __html: data.description }}
-                                           className="text-xl"
-                                       />
+                                        <div
+                                            dangerouslySetInnerHTML={{ __html: data.description }}
+                                            className="text-xl"
+                                        />
                                     </div>
+
+                                    <button className="flex uppercase bg-primary brightness-75 cursor-not-allowed cur mt-5 w-fit py-2 px-10 text-white font-semibold rounded-2xl shadow-lg text-xl hover:brightness-105 hover:shadow-xl duration-300 hover:scale-[1.03]">
+                                        register
+                                    </button>
 
                                     <div id="konfhub-widget-container" className="my-10 lg:my-5 flex w-full lg:justify-normal md:justify-center "></div>
                                 </div>
@@ -160,6 +166,7 @@ export default function EventsPage() {
                 </div>
             </div>
 
+            <div className="h-20 my-4"></div>
             <div className="flex justify-end w-full lg:fixed lg:bottom-0">
                 <div className="w-[100%]">
                     <Footer></Footer>

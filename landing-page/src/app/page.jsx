@@ -1,8 +1,8 @@
-// 'use client'
 
-// import { AnimatedOnScroll } from "react-animated-css-onscroll";
 import Clubs from "./components/club/Clubs";
 import CoordinatorHead from "./components/CoordinatorHead";
+import Events from "./components/events/Events";
+
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
@@ -15,23 +15,20 @@ export default function Home() {
   return (
     <>
       <Navbar></Navbar>
-
-      <div className="">
-
+      <div className="scale-105">
         <Hero></Hero>
 
         <div id="club" className=""></div>
         <div className="-mt-3"></div>
         <Clubs></Clubs>
 
+        <div>
+          <Events />
+        </div>
 
-        {/* <AnimatedOnScroll */}
-          {/* animationIn="animationIn"> */}
-
-          <div id="coordinator" className=""></div>
-          <div className="mt-0 mb-0"></div>
-          <CoordinatorHead></CoordinatorHead>
-        {/* </AnimatedOnScroll> */}
+        <div id="coordinator" className=""></div>
+        <div className="mt-0 mb-0"></div>
+        <CoordinatorHead></CoordinatorHead>
 
         <div id="incharge" className=""></div>
         <div className="mt-0 mb-0"></div>
