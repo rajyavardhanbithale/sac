@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from 'mongodb';
-import { unstable_noStore } from 'next/cache';
+
 
 const client = new MongoClient(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -9,7 +9,12 @@ const client = new MongoClient(process.env.MONGODB_URI, {
 });
 
 export async function POST(request) {
-    unstable_noStore()
+    const uniqueID = () => {
+        const time = new Date().valueOf();
+        const randNumber =  Math.floor(Math.random()*10000).toString()
+        const randomState = time.toString().split('').map(Number).reduce((a,b)=>a+b,0) + randNumber
+        return parseInt(randomState)
+    } 
     await client.connect();
     const database = client.db('SAC');
     const collection = database.collection('events');
@@ -19,6 +24,7 @@ export async function POST(request) {
 
     const body = await request.json();
     const update = {
+        id: uniqueID(),
         title: body.title,
         location: body.location,
         date: body.date,

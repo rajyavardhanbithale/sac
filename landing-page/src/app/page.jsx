@@ -15,14 +15,14 @@ export default function Home() {
   return (
     <>
       <Navbar></Navbar>
-      <div className="scale-105">
+      <div className="">
         <Hero></Hero>
 
         <div id="club" className=""></div>
         <div className="-mt-3"></div>
         <Clubs></Clubs>
 
-        <div>
+        <div className="mt-36">
           <Events />
         </div>
 

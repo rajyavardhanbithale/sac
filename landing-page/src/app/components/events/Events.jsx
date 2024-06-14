@@ -45,12 +45,12 @@ export default function Events() {
                 <span className="mt-2 text-xl text-gray-600">
                     Stay updated with our latest events. Browse through upcoming and past events to never miss out!
                 </span>
-                <div className="my-5 flex justify-evenly p-1 bg-slate-100 mx-2 rounded-full">
+                <div className="my-5 flex justify-evenly sm:p-1 p-1.5 bg-slate-100 mx-2 rounded-full">
                     {eventTab.map((item, idx) => (
                         <div
                             key={idx}
                             onClick={() => setActiveTab(idx)}
-                            className={`p-2 w-36 flex justify-center cursor-pointer ${idx === activeTab ? "bg-primary text-white rounded-full animate-fade animate-duration-[1.5s]" : ""}`}>
+                            className={`p-2 sm:w-36 w-28 flex justify-center cursor-pointer ${idx === activeTab ? "bg-primary text-white rounded-full animate-fade animate-duration-[1.5s]" : ""}`}>
                             <span className="hover:scale-[1.02] duration-300 hover:border-b-[3px] font-medium border-primary">
                                 {item}
                             </span>

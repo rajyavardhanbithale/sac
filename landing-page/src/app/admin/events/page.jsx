@@ -10,8 +10,10 @@ export default function AdminClub() {
     const [eventList, setEventList] = useState(null)
     const [isModalOpen, setModalOpen] = useState(false);
 
-    const [auth, setAuth] = useState(false)
+    const [auth, setAuth] = useState(null)
     const [password, setPassword] = useState('');
+
+    const [incorrect, setIncorrect] = useState(false)
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
@@ -30,11 +32,14 @@ export default function AdminClub() {
     }
 
     useEffect(() => {
+        
         const cookieValue = Cookies.get('sh')
         const sha256CHK = process.env.NEXT_PUBLIC_AUTH_ADMIN_MD5
 
-        if(cookieValue === sha256CHK){
+        if (cookieValue === sha256CHK) {
             setAuth(true)
+        }else{
+            setAuth(false)
         }
 
         handleFetch();
@@ -44,16 +49,18 @@ export default function AdminClub() {
         e.preventDefault();
         const chk = process.env.NEXT_PUBLIC_AUTH_ADMIN
         const sha256CHK = process.env.NEXT_PUBLIC_AUTH_ADMIN_MD5
-        if(password === chk){
+        if (password === chk) {
             setAuth(true)
-            Cookies.set('sh', sha256CHK, { expires: 1/12 });
+            Cookies.set('sh', sha256CHK, { expires: 1 / 12 });
+        } else {
+            setIncorrect(true)
         }
     };
 
 
     return (
         <>
-            {auth &&
+            {auth===true &&
                 <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
                     <div className="w-full mx-auto">
                         <h2 className="text-center text-5xl font-extrabold text-gray-900">Events</h2>
@@ -78,7 +85,7 @@ export default function AdminClub() {
                 </div>
             }
 
-            {!auth &&
+            {auth===false &&
                 <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-md w-full space-y-8">
                         <div>
@@ -94,10 +101,15 @@ export default function AdminClub() {
                                 autoComplete="current-password"
                                 required
                                 value={password}
-                                onChange={e=>setPassword(e.target.value)}
+                                onChange={e => setPassword(e.target.value)}
                                 className="shadow-sm focus:ring-orange-500 py-1 outline-none focus:border-orange-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="Password"
                             />
+                            {incorrect &&
+                                <span className="mb-5 text-center text-lg font-normal text-red-500">
+                                    Incorrect Password
+                                </span>
+                            }
                             <div>
                                 <button
                                     type="submit"
@@ -107,6 +119,9 @@ export default function AdminClub() {
                                 </button>
                             </div>
                         </form>
+
+
+
                     </div>
                 </div>
             }
