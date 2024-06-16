@@ -1,4 +1,0 @@
-fastapi
-pymongo
-pydantic
-python-dotenv
