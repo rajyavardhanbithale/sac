@@ -1,32 +1,17 @@
 'use client'
 
-import axios from "axios";
-import { useEffect, useState } from "react";
+import Link from "next/link"
+import { BsCalendar4Event } from "react-icons/bs";
 import Cookies from 'js-cookie';
-import AdminGalleryComponent from "../components/AdminGallery";
-import PopUpModalGallery from "../components/PopUpModalGallery";
 
-export default function AdminGallery() {
-    const [imageList, setImageList] = useState(null)
-    const [isModalOpen, setModalOpen] = useState(false);
+import { IoImagesOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
 
+export default function Admin() {
     const [auth, setAuth] = useState(null)
     const [password, setPassword] = useState('');
 
     const [incorrect, setIncorrect] = useState(false)
-
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => setModalOpen(false);
-
-
-    const handleFetch = async () => {
-        try {
-            const response = await axios.get('/api/db/gallery')
-            setImageList(response?.data?.data)
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     useEffect(() => {
         const cookieValue = Cookies.get('sh')
@@ -37,8 +22,6 @@ export default function AdminGallery() {
         } else {
             setAuth(false)
         }
-
-        handleFetch();
     }, []);
 
     const handleSubmit = (e) => {
@@ -53,32 +36,33 @@ export default function AdminGallery() {
         }
     };
 
-
-    console.log(imageList);
     return (
         <>
             {auth === true &&
-
-
-                <div className="py-12 px-4 sm:px-6 lg:px-8">
-                    <div className="w-full mx-auto">
-                        <h2 className="text-center text-5xl font-extrabold text-gray-900">Gallery</h2>
-                        <button
-                            onClick={openModal}
-                            className="flex mx-auto m-5 px-6 py-2 bg-orange-400 text-white font-semibold rounded-2xl">Create</button>
-
-
-                        <div className="mt-6 flex flex-wrap gap-5">
-                            {imageList?.map((item, idx) => (
-                                <AdminGalleryComponent item={item} key={idx} handleFetch={handleFetch} />
-                            ))}
+                <div className="bg-white flex items-center justify-center min-h-screen">
+                    <div className="text-center p-8 bg-slate-100 rounded-lg shadow-lg max-w-4xl mx-auto">
+                        <h1 className="text-5xl font-extrabold mb-8 text-gray-800">Admin Dashboard</h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <Link href="/admin/events">
+                                <div className="block p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105 border-2 border-transparent hover:border-slate-400">
+                                    <h2 className="text-4xl font-bold mb-4 text-gray-800">Events</h2>
+                                    <div className="flex justify-center mb-4">
+                                        <BsCalendar4Event className="text-6xl text-slate-600" />
+                                    </div>
+                                    <p className="text-lg text-gray-600">Manage events and activities</p>
+                                </div>
+                            </Link>
+                            <Link href="/admin/gallery">
+                                <div className="block p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105 border-2 border-transparent hover:border-slate-400">
+                                    <h2 className="text-4xl font-bold mb-4 text-gray-800">Gallery</h2>
+                                    <div className="flex justify-center mb-4">
+                                        <IoImagesOutline className="text-6xl text-slate-600" />
+                                    </div>
+                                    <p className="text-lg text-gray-600">Manage gallery and images</p>
+                                </div>
+                            </Link>
                         </div>
                     </div>
-                    <PopUpModalGallery
-                        isOpen={isModalOpen}
-                        closeModal={closeModal}
-                        fetch={handleFetch}
-                    />
                 </div>
             }
 
@@ -122,11 +106,6 @@ export default function AdminGallery() {
                     </div>
                 </div>
             }
-
-
-
         </>
     )
 }
-
-

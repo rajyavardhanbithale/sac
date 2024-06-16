@@ -10,56 +10,62 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Gallery() {
-    // const [images,setImages] = useState([])
+    const [images, setImages] = useState([])
+
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 800,
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         nextArrow: <CustomNextArrow />,
         prevArrow: <CustomPrevArrow />,
         responsive: [
             {
-                breakpoint: 992,
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    autoplaySpeed: 5000,
-                    speed: 1000,
+                    slidesToScroll: 2,
+                    initialSlide: 2
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    autoplaySpeed: 5000,
-                    speed: 1000,
+                    slidesToScroll: 1
                 }
             }
-        ]
+        ],
+        infinite: images && images.length > 1,
     };
 
 
-    // const handleFetch = async () =>{
-    //     try{
-    //         const response = await axios.get('/api/db')
-    //         setImages(response?.data?.data?.id)
-    //         // // console.log(response?.data?.data?.id);
-    //     }catch{
-    //         // console.log("error");
-    //     }
-    // }
+    const handleFetch = async () => {
+        try {
+            const response = await axios.get('/api/db/gallery')
+            setImages(response?.data?.data?.filter((item) => item.visible === true))
 
-    const images = [
-        '/gallery/img1.png',
-        '/gallery/img2.jpg',
-        '/gallery/img3.jpg',
-    ]
-    // useEffect(()=>{
-    //     handleFetch()
-    // },[])
+        } catch {
+            console.log("error");
+        }
+    }
+
+
+    useEffect(() => {
+        handleFetch()
+    }, [])
 
     return (
         <>
@@ -69,17 +75,8 @@ export default function Gallery() {
                 <Slider {...settings}>
                     {images.map((image, index) => (
                         <div key={index}>
-                            {/* <Image
-                                src={`https://lh3.googleusercontent.com/d/${image}=w1000?authuser=1/view`}
-                                width={0}
-                                height={0}
-                                sizes="100vw"
-                                alt={`Slide ${index + 1}`}
-                                className="object-cover w-[80%] h-[80%] mx-auto my-auto" 
-                                unoptimized
-                                /> */}
                             <Image
-                                src={image}
+                                src={`https://lh3.googleusercontent.com/d/${image.image_id}=w1000`}
                                 width={0}
                                 height={0}
                                 sizes="100vw"

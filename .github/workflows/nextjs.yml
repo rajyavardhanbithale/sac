@@ -24,9 +24,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: landing-page
+# defaults:
+#   run:
+#     working-directory: landing-page
 
 env:
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
@@ -35,9 +35,9 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: landing-page
+    # defaults:
+    #   run:
+    #     working-directory: landing-page
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -76,7 +76,7 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: './landing-page/yarn.lock'
+          # cache-dependency-path: './landing-page/yarn.lock'
   
       - name: Setup Pages
         uses: actions/configure-pages@v4

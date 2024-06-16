@@ -2,11 +2,11 @@
 import Clubs from "./components/club/Clubs";
 import CoordinatorHead from "./components/CoordinatorHead";
 import Events from "./components/events/Events";
+import Hero from "./components/Hero";
+import Incharge from "./components/incharge/incharge";
 
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
-import Hero from "./components/Hero";
-import Incharge from "./components/incharge/incharge";
 import LogoPan from "./components/LogoPan";
 import Navbar from "./components/Navbar";
 

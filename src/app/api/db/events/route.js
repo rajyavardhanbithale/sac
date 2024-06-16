@@ -14,6 +14,7 @@ export async function GET(req, res) {
     const param = req.nextUrl.searchParams.get('id')
 
     if (param) {
+        // I Know :)
         if (/^\d+$/.test(param)) {
             const events = (await collection.find({ 'id': parseInt(param) }).toArray()).reverse();
             if(events.length === 0){

@@ -31,8 +31,8 @@ export default function AdminEventCard({ event }) {
     }
     return (
         <>
-            <div className="w-[90%]   mx-auto bg-white rounded-xl shadow-md overflow-hidden ">
-                <div className="lg:flex">
+            <div className="w-[90%]  mx-auto bg-white rounded-xl shadow-md overflow-hidden ">
+                <div className="lg:flex lg:flex-col xl:flex-row">
                     <div className="flex justify-center my-auto mx-auto">
                         <img
                             className="h-full object-cover md:w-1/2 lg:w-full"

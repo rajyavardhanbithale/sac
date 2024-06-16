@@ -6,7 +6,7 @@ import AdminEventCard from "../components/AdminEventCard";
 import PopUpModalEvent from "../components/PopUpModalEvents";
 import Cookies from 'js-cookie';
 
-export default function AdminClub() {
+export default function AdminEvents() {
     const [eventList, setEventList] = useState(null)
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -17,10 +17,6 @@ export default function AdminClub() {
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
-
-    function handleModal() {
-        openModal()
-    }
 
     const handleFetch = async () => {
         try {

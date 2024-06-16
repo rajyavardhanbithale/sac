@@ -7,6 +7,9 @@ const client = new MongoClient(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+await client.connect();
+const database = client.db('SAC');
+const collection = database.collection('events');
 
 export async function POST(request) {
     const uniqueID = () => {
@@ -15,9 +18,7 @@ export async function POST(request) {
         const randomState = time.toString().split('').map(Number).reduce((a,b)=>a+b,0) + randNumber
         return parseInt(randomState)
     } 
-    await client.connect();
-    const database = client.db('SAC');
-    const collection = database.collection('events');
+
 
 
     const method = request.nextUrl.searchParams.get("method")
