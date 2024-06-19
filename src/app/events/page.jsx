@@ -45,7 +45,7 @@ export default function EventsPage(request) {
     const isEventPast = (epoch) => {
         const eventDate = new Date(epoch * 1000)
         const today = new Date()
-        return eventDate < today
+        return eventDate < (today + 86400)
     }
 
     const upcomingEvents = events.filter(event => !isEventPast(event.date))
